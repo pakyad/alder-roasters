@@ -1,0 +1,25 @@
+.section {
+  color: var(--color-text);
+}
+.parchment {
+  background: var(--color-parchment);
+}
+.paper {
+  background: var(--color-paper);
+}
+.oat {
+  background: var(--color-oat);
+}
+.dark {
+  background: var(--color-espresso);
+  color: var(--color-text-inverted);
+}
+.compact {
+  padding-block: var(--space-8);
+}
+.default {
+  padding-block: var(--section-space);
+}
+.generous {
+  padding-block: var(--section-space-large);
+}

@@ -1,0 +1,243 @@
+.bagStage {
+  aspect-ratio: 4 / 5;
+  background: #e8dece;
+  overflow: hidden;
+  position: relative;
+}
+.bagImage {
+  object-fit: contain;
+  padding: 7%;
+}
+.bagLabel {
+  background: rgba(250, 247, 241, 0.96);
+  border: 1px solid var(--color-ink);
+  display: grid;
+  gap: 0.14rem;
+  left: 50%;
+  min-width: 43%;
+  padding: 0.8rem 0.65rem;
+  position: absolute;
+  text-align: center;
+  top: 51%;
+  transform: translate(-50%, -50%);
+}
+.bagLabel strong {
+  font: 400 clamp(0.95rem, 2vw, 1.35rem)/1 var(--font-serif);
+}
+.bagLabel span {
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.bagLabel .bagMark {
+  border-bottom: 1px solid var(--color-ink);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.3rem;
+}
+.plate {
+  min-width: 0;
+}
+.plateImageLink {
+  color: inherit;
+  display: block;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.plateImageLink:hover {
+  transform: translateY(-0.25rem);
+}
+.plateCopy {
+  display: grid;
+  gap: 0.55rem;
+  padding-block: 1rem 2rem;
+}
+.plateCopy p {
+  margin: 0;
+}
+.origin {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.plateTitle {
+  font-size: var(--font-size-h3);
+  margin: 0.1rem 0 0;
+}
+.plateTitle a {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.plateTitle a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.taste {
+  color: var(--color-text-secondary);
+  max-width: 38ch;
+}
+.plateMeta {
+  align-items: center;
+  display: flex;
+  font-size: var(--font-size-sm);
+  justify-content: space-between;
+}
+.status {
+  color: var(--color-warning);
+  font-weight: 600;
+}
+.filters {
+  border-block: 1px solid var(--color-border-subtle);
+  margin-bottom: 2rem;
+  padding-block: 1rem;
+}
+.filterDisclosure summary {
+  font-weight: 650;
+}
+.filterForm {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+.filterForm label {
+  display: grid;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  gap: 0.35rem;
+}
+.filterForm select,
+.configurator select {
+  appearance: none;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  color: var(--color-ink);
+  min-height: 3rem;
+  padding: 0.6rem 2.2rem 0.6rem 0.75rem;
+}
+.applyButton,
+.addButton {
+  background: var(--color-espresso);
+  border: 1px solid var(--color-espresso);
+  color: var(--color-text-inverted);
+  min-height: 3.25rem;
+  padding: 0.75rem 1.25rem;
+}
+.applyButton:hover,
+.addButton:hover:not(:disabled) {
+  background: var(--color-clay);
+  border-color: var(--color-clay);
+}
+.activeFilters {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--font-size-sm);
+  gap: 0.75rem 1.25rem;
+  padding-top: 1rem;
+}
+.configurator {
+  display: grid;
+  gap: 1.35rem;
+}
+.configurator fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.configurator legend {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.optionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.optionRow label {
+  position: relative;
+}
+.optionRow input {
+  opacity: 0;
+  position: absolute;
+}
+.optionRow span {
+  border: 1px solid var(--color-border);
+  display: block;
+  min-width: 5rem;
+  padding: 0.65rem 1rem;
+  text-align: center;
+}
+.optionRow input:checked + span {
+  background: var(--color-espresso);
+  border-color: var(--color-espresso);
+  color: var(--color-text-inverted);
+}
+.optionRow input:focus-visible + span {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.configurator select {
+  width: 100%;
+}
+.help {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  margin: 0.4rem 0 0;
+}
+.purchaseOptions {
+  display: grid;
+  gap: 0.5rem;
+}
+.purchaseOptions label {
+  align-items: start;
+  border: 1px solid var(--color-border);
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: auto 1fr;
+  padding: 0.8rem;
+}
+.purchaseOptions span {
+  display: grid;
+}
+.purchaseOptions small {
+  color: var(--color-text-secondary);
+}
+.disabledOption {
+  opacity: 0.62;
+}
+.priceRegion {
+  align-items: baseline;
+  display: flex;
+  gap: 0.35rem;
+}
+.priceRegion strong {
+  font: 400 var(--font-size-h3)/1 var(--font-serif);
+}
+.addButton:disabled {
+  background: var(--color-stone);
+  border-color: var(--color-stone);
+  color: var(--color-ink);
+}
+.feedback {
+  color: var(--color-success);
+  font-size: var(--font-size-sm);
+  min-height: 1.5em;
+  margin: -0.7rem 0 0;
+}
+@media (min-width: 48rem) {
+  .filterDisclosure summary {
+    display: none;
+  }
+  .filterDisclosure:not([open]) > *:not(summary) {
+    display: initial;
+  }
+  .filterForm {
+    align-items: end;
+    grid-template-columns: repeat(3, minmax(8rem, 1fr)) auto;
+    padding-top: 0;
+  }
+}

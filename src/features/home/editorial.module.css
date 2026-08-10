@@ -1,0 +1,314 @@
+.hero {
+  min-height: min(48rem, 82vh);
+  position: relative;
+  display: grid;
+  align-items: end;
+  color: var(--color-text-inverted);
+  background: var(--color-espresso);
+  overflow: hidden;
+}
+.heroImage {
+  object-fit: cover;
+  object-position: center 46%;
+  opacity: 0.72;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(29, 25, 22, 0.76), rgba(29, 25, 22, 0.08) 72%);
+}
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(5rem, 12vw, 10rem);
+}
+.heroCopy {
+  max-width: 48rem;
+}
+.heroCopy h1 {
+  font-size: var(--font-size-display);
+}
+.heroCopy p {
+  max-width: 35rem;
+}
+.heroActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+.heroActions a:last-child {
+  color: var(--color-text-inverted);
+}
+.sectionHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-bottom: var(--space-10);
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+.coffeeCard {
+  color: inherit;
+  text-decoration: none;
+}
+.coffeeImage {
+  aspect-ratio: 4 / 5;
+  background: var(--color-oat);
+  position: relative;
+  margin-bottom: var(--space-6);
+  overflow: hidden;
+}
+.coffeeImage img {
+  object-fit: cover;
+}
+.coffeeCard h3 {
+  margin-bottom: var(--space-2);
+}
+.coffeeCard p {
+  color: var(--color-text-secondary);
+}
+.price {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+.darkIntro {
+  max-width: 48rem;
+}
+.darkIntro a {
+  color: var(--color-text-inverted);
+}
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-10);
+  margin-top: var(--space-12);
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--color-border-strong);
+}
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: center;
+}
+.editorialImage {
+  width: 100%;
+  height: auto;
+}
+.pageHero {
+  padding-block: clamp(5rem, 9vw, 9rem);
+}
+.pageHero p {
+  max-width: 43rem;
+}
+.storyBody {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-12);
+}
+.storyBody article {
+  max-width: 45rem;
+}
+.guideCard {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--color-paper);
+}
+.guideCardImage {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+}
+.guideCardBody {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.guideMeta {
+  color: var(--color-text-secondary);
+}
+.guideCardBody a {
+  margin-top: auto;
+}
+.guideHeader {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: var(--space-10);
+  align-items: end;
+}
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-block: 1px solid var(--color-border);
+  margin-top: var(--space-10);
+}
+.statGrid div {
+  padding: var(--space-6);
+  border-right: 1px solid var(--color-border);
+}
+.statGrid div:last-child {
+  border: 0;
+}
+.statGrid dd,
+.statGrid dt {
+  margin: 0;
+}
+.statGrid dd {
+  font-weight: 600;
+}
+.calculator {
+  background: var(--color-oat);
+  padding: var(--space-8);
+}
+.calculator label,
+.searchLabel {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+.inputUnit {
+  display: flex;
+  align-items: center;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  width: 10rem;
+}
+.inputUnit input {
+  border: 0;
+  background: transparent;
+  padding: var(--space-3);
+  width: 100%;
+}
+.inputUnit span {
+  padding-right: var(--space-3);
+}
+.ratioResult {
+  font-size: var(--font-size-lg);
+  margin-top: var(--space-6);
+}
+.steps {
+  list-style: none;
+  counter-reset: steps;
+  padding: 0;
+}
+.steps li {
+  counter-increment: steps;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-6);
+}
+.steps li::before {
+  content: counter(steps, decimal-leading-zero);
+  color: var(--color-clay);
+  font-weight: 600;
+}
+.steps h3 {
+  font-size: var(--font-size-lg);
+}
+.equipment {
+  columns: 2;
+  padding-left: 1.2rem;
+}
+.trouble {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+.trouble div {
+  background: var(--color-paper);
+  padding: var(--space-6);
+}
+.locationDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-10);
+}
+.locationDetails address {
+  font-style: normal;
+}
+.policySections {
+  margin-top: var(--space-12);
+}
+.policySections section {
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-8);
+}
+.policySections h2 {
+  font-size: var(--font-size-h3);
+}
+.searchInput {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-strong);
+  font-size: var(--font-size-lg);
+  padding: var(--space-4);
+  width: 100%;
+}
+.resultCount {
+  color: var(--color-text-secondary);
+  margin-top: var(--space-4);
+}
+.searchResults {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-8);
+}
+.searchResults li {
+  border-top: 1px solid var(--color-border);
+}
+.searchResults a {
+  color: inherit;
+  display: grid;
+  grid-template-columns: 6rem 1fr 1fr;
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+  text-decoration: none;
+}
+.emptyState {
+  background: var(--color-oat);
+  margin-top: var(--space-8);
+  padding: var(--space-8);
+}
+
+@media (max-width: 48rem) {
+  .grid3,
+  .principles,
+  .trouble {
+    grid-template-columns: 1fr;
+  }
+  .split,
+  .guideHeader,
+  .storyBody {
+    grid-template-columns: 1fr;
+  }
+  .sectionHeader {
+    display: block;
+  }
+  .sectionHeader a {
+    display: inline-block;
+    margin-top: var(--space-4);
+  }
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+  .statGrid div {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .locationDetails {
+    grid-template-columns: 1fr;
+  }
+  .searchResults a {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}

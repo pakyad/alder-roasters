@@ -1,0 +1,56 @@
+.main {
+  padding-block: clamp(3rem, 7vw, 7rem);
+}
+.intro {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+  max-width: 55rem;
+}
+.intro p {
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 62ch;
+}
+.tools {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.tools p {
+  margin: 0;
+}
+.sort {
+  align-items: center;
+  display: flex;
+  gap: 0.65rem;
+}
+.sort select {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem;
+}
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+.empty {
+  border-block: 1px solid var(--color-border-subtle);
+  grid-column: 1 / -1;
+  padding-block: 4rem;
+  text-align: center;
+}
+.empty p {
+  color: var(--color-text-secondary);
+}
+.seasonNote {
+  border-top: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}

@@ -1,0 +1,15 @@
+.logo {
+  color: inherit;
+  display: inline-grid;
+  gap: 0.05rem;
+  line-height: 1;
+  text-decoration: none;
+}
+.logo span {
+  font: 500 1.25rem/1 var(--font-sans);
+  letter-spacing: 0.17em;
+}
+.logo small {
+  font: 400 0.7rem/1 var(--font-serif);
+  letter-spacing: 0.08em;
+}

@@ -1,0 +1,29 @@
+.bar {
+  background: var(--color-espresso);
+  color: var(--color-text-inverted);
+  font-size: var(--font-size-xs);
+}
+.inner {
+  align-items: center;
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  min-height: 2.25rem;
+  padding-block: var(--space-2);
+  text-align: center;
+}
+.inner p {
+  margin: 0;
+}
+.inner a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  white-space: nowrap;
+}
+@media (max-width: 35rem) {
+  .inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+}

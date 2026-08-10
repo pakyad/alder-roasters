@@ -1,0 +1,107 @@
+.footer {
+  background: var(--color-espresso);
+  color: var(--color-text-inverted);
+  padding-block: var(--space-12) var(--space-6);
+}
+.top {
+  display: grid;
+  gap: var(--space-10);
+  grid-template-columns: 1fr minmax(18rem, 0.8fr);
+  padding-bottom: var(--space-10);
+}
+.brand p,
+.newsletter p {
+  color: #cfc6bb;
+  max-width: 34rem;
+}
+.newsletter label {
+  display: block;
+  font: 400 var(--font-size-lg)/1.2 var(--font-serif);
+}
+.field {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.field input {
+  background: transparent;
+  border: 1px solid #82766e;
+  color: inherit;
+  font: inherit;
+  min-height: 2.75rem;
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  width: 100%;
+}
+.field input::placeholder {
+  color: #b5aaa1;
+}
+.field button {
+  border-color: var(--color-text-inverted);
+  color: var(--color-text-inverted);
+}
+.links {
+  border-block: 1px solid #51463f;
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: repeat(3, 1fr);
+  padding-block: var(--space-8);
+}
+.links nav {
+  align-content: start;
+  display: grid;
+  gap: var(--space-2);
+}
+.links h2 {
+  font: 600 var(--font-size-xs)/1.2 var(--font-sans);
+  letter-spacing: 0.06em;
+  margin: 0 0 var(--space-2);
+  text-transform: uppercase;
+}
+.links a {
+  color: inherit;
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+}
+.links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.legal {
+  color: #bdb3aa;
+  display: flex;
+  font-size: var(--font-size-xs);
+  gap: var(--space-6);
+  justify-content: space-between;
+  padding-top: var(--space-6);
+}
+.legal p {
+  margin: 0;
+}
+.legal p:last-child {
+  max-width: 42rem;
+  text-align: right;
+}
+@media (max-width: 48rem) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+  .links {
+    grid-template-columns: 1fr 1fr;
+  }
+  .legal {
+    flex-direction: column;
+  }
+  .legal p:last-child {
+    text-align: left;
+  }
+}
+@media (max-width: 28rem) {
+  .field {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .links {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,194 @@
+:root {
+  --color-ink: #1d1916;
+  --color-espresso: #2b211c;
+  --color-roast: #5a3e32;
+  --color-parchment: #f4efe6;
+  --color-paper: #faf7f1;
+  --color-oat: #e4dacb;
+  --color-stone: #b8ada0;
+  --color-clay: #9a5537;
+  --color-moss: #5f6a55;
+  --color-brass: #b3864b;
+  --color-text: var(--color-ink);
+  --color-text-secondary: #625b55;
+  --color-text-inverted: #f7f2ea;
+  --color-text-disabled: #8c837b;
+  --color-border-subtle: #d8cfc3;
+  --color-border: #b8ada0;
+  --color-border-strong: #756b63;
+  --color-focus: #2b6c7a;
+  --color-success: #48624a;
+  --color-success-surface: #e7eee4;
+  --color-warning: #7a4b10;
+  --color-warning-surface: #f5ead4;
+  --color-error: #8e3e32;
+  --color-error-surface: #f6e3df;
+  --color-info: #3f5962;
+  --color-info-surface: #e5ecee;
+  --font-sans: var(--font-instrument-sans), "Arial", sans-serif;
+  --font-serif: var(--font-newsreader), "Georgia", serif;
+  --font-size-xs: 0.8125rem;
+  --font-size-sm: clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
+  --font-size-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1.02rem + 0.4vw, 1.375rem);
+  --font-size-h3: clamp(1.375rem, 1.15rem + 0.8vw, 1.875rem);
+  --font-size-h2: clamp(1.875rem, 1.45rem + 1.5vw, 2.75rem);
+  --font-size-h1: clamp(2.25rem, 1.55rem + 2.8vw, 4rem);
+  --font-size-display: clamp(3rem, 1.7rem + 5.5vw, 7rem);
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 3rem;
+  --space-12: 4rem;
+  --space-16: 6rem;
+  --space-20: 8rem;
+  --section-space: clamp(4rem, 7vw, 8rem);
+  --section-space-large: clamp(6rem, 10vw, 10rem);
+  --shell-gutter: clamp(1rem, 3vw, 3rem);
+  --width-shell: 90rem;
+  --width-content: 72rem;
+  --width-narrow: 46rem;
+  --duration-fast: 160ms;
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  background: var(--color-parchment);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-parchment);
+  color: var(--color-text);
+  font: 400 var(--font-size-body)/1.6 var(--font-sans);
+  margin: 0;
+  min-width: 20rem;
+  text-rendering: optimizeLegibility;
+}
+main:focus {
+  outline: none;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  margin-block: 0 0.5em;
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--font-size-h1);
+  line-height: 1.04;
+}
+h2 {
+  font-size: var(--font-size-h2);
+  line-height: 1.08;
+}
+h3 {
+  font-size: var(--font-size-h3);
+  line-height: 1.15;
+}
+p {
+  margin-block: 0 1em;
+}
+a {
+  color: var(--color-clay);
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+select {
+  cursor: pointer;
+}
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+::selection {
+  background: var(--color-oat);
+  color: var(--color-ink);
+}
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.skip-link {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  left: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  position: fixed;
+  top: var(--space-4);
+  transform: translateY(-200%);
+  z-index: 100;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+.eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.display {
+  font: 400 var(--font-size-display)/0.96 var(--font-serif);
+  letter-spacing: -0.04em;
+}
+.lead {
+  font-size: var(--font-size-lg);
+  line-height: 1.5;
+  max-width: 65ch;
+}
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}

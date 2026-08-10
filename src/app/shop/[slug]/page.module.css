@@ -1,0 +1,125 @@
+.main {
+  padding-block: clamp(2rem, 5vw, 5rem) clamp(5rem, 9vw, 9rem);
+}
+.breadcrumb {
+  font-size: var(--font-size-sm);
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a {
+  color: var(--color-text-secondary);
+}
+.hero {
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.gallery {
+  min-width: 0;
+}
+.summary {
+  align-self: start;
+}
+.origin {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+.summary h1 {
+  margin-bottom: 0.35rem;
+}
+.taste {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+}
+.availability {
+  color: var(--color-success);
+  font-size: var(--font-size-sm);
+  font-weight: 650;
+}
+.availability[data-status="sold-out"] {
+  color: var(--color-error);
+}
+.availability[data-status="low-stock"] {
+  color: var(--color-warning);
+}
+.facts {
+  border-block: 1px solid var(--color-border-subtle);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-block: 4rem;
+  padding-block: 2rem;
+}
+.facts div {
+  display: grid;
+  gap: 0.15rem;
+}
+.facts dt {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+}
+.facts dd {
+  margin: 0;
+}
+.story {
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.story p {
+  color: var(--color-text-secondary);
+}
+.tasteList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+.tasteList li {
+  border: 1px solid var(--color-border);
+  padding: 0.45rem 0.7rem;
+}
+.meters {
+  display: grid;
+  gap: 1rem;
+}
+.meter {
+  display: grid;
+  gap: 0.35rem;
+  grid-template-columns: 6rem 1fr;
+}
+.meter span:last-child {
+  background: linear-gradient(
+    to right,
+    var(--color-clay) var(--value),
+    var(--color-oat) var(--value)
+  );
+  height: 0.65rem;
+  margin-top: 0.45rem;
+}
+.shipping {
+  background: var(--color-paper);
+  margin-top: 4rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+.shipping p {
+  margin: 0;
+  max-width: 66ch;
+}
+@media (min-width: 50rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  }
+  .summary {
+    position: sticky;
+    top: 2rem;
+  }
+  .facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .story {
+    grid-template-columns: 1fr 1fr;
+  }
+}
