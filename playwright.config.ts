@@ -6,16 +6,18 @@ export default defineConfig({
   workers: 1,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
-  reporter: "html",
-  use: { baseURL: "http://127.0.0.1:3000", trace: "on-first-retry" },
+  reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "html",
+  use: {
+    baseURL: "http://127.0.0.1:3000",
+    trace: "on-first-retry",
+  },
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
     { name: "mobile-chromium", use: { ...devices["Pixel 7"] } },
   ],
   webServer: {
-    command:
-      '"C:\\Users\\USER\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe" node_modules/next/dist/bin/next dev',
+    command: "pnpm dev",
     url: "http://127.0.0.1:3000",
-    reuseExistingServer: false,
+    reuseExistingServer: !process.env.CI,
   },
 });

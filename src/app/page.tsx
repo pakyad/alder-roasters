@@ -14,7 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featured = coffees.filter((coffee) => coffee.featuredRank !== null).slice(0, 3);
+  const featured = coffees
+    .filter((coffee) => coffee.featuredRank !== null)
+    .toSorted((left, right) => Number(left.featuredRank) - Number(right.featuredRank))
+    .slice(0, 3);
+
   return (
     <>
       <section className={styles.hero}>
