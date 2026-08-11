@@ -76,7 +76,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <section className={styles.story}>
           <div>
             <p className="eyebrow">In the cup</p>
-            <h2>Clear character, without the theatre.</h2>
+            <h2>How {coffee.name} drinks.</h2>
             <ul className={styles.tasteList}>
               {coffee.taste.notes.map((note) => (
                 <li key={note}>{note}</li>
@@ -119,7 +119,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
         <aside className={styles.shipping}>
-          <h2>Freshly roasted, carefully sent.</h2>
+          <p className="eyebrow">Dispatch</p>
+          <h2>Roasted in small batches.</h2>
           <p>
             We roast in small batches and pack after resting. Delivery timing is shown at checkout;
             subscriptions recur every four weeks and can be paused or cancelled before the next

@@ -29,11 +29,10 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
     <div className={styles.main}>
       <Container>
         <header className={styles.intro}>
-          <p className="eyebrow">Current coffees</p>
-          <h1>A small range, chosen with intent.</h1>
+          <p className="eyebrow">Coffee / current release</p>
+          <h1>What is on the shelf.</h1>
           <p className="lead">
-            Find your cup by the flavours you enjoy or the way you brew. Every coffee is roasted in
-            small batches and dispatched fresh.
+            Choose by the way it tastes or the way you brew. Prices start at 250g.
           </p>
         </header>
         <div className={styles.tools}>
@@ -70,8 +69,8 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
           )}
         </section>
         <p className={styles.seasonNote}>
-          Coffee is agricultural and seasonal. Sold-out lots stay visible so you can revisit their
-          stories while the next harvest makes its way to us.
+          Sold-out lots remain in the archive. Coffee changes with each harvest; the catalogue
+          should too.
         </p>
       </Container>
     </div>

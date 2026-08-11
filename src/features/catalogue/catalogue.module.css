@@ -37,20 +37,28 @@
   padding-bottom: 0.3rem;
 }
 .plate {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-subtle);
   min-width: 0;
 }
 .plateImageLink {
   color: inherit;
   display: block;
-  transition: transform var(--duration-fast) var(--ease-standard);
+  transition:
+    box-shadow var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
 }
 .plateImageLink:hover {
   transform: translateY(-0.25rem);
 }
+.plateImageLink:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
 .plateCopy {
   display: grid;
   gap: 0.55rem;
-  padding-block: 1rem 2rem;
+  padding: 1.1rem 1rem 1.35rem;
 }
 .plateCopy p {
   margin: 0;
@@ -77,6 +85,7 @@
 .taste {
   color: var(--color-text-secondary);
   max-width: 38ch;
+  text-wrap: pretty;
 }
 .plateMeta {
   align-items: center;

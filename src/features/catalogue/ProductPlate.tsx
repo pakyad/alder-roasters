@@ -25,6 +25,7 @@ export function ProductPlate({ coffee, priority = false }: { coffee: Coffee; pri
           </h2>
         </div>
         <p className={styles.taste}>{coffee.taste.summary}</p>
+        <p className={styles.brewLine}>Brew: {coffee.brewMethods.join(" / ")}</p>
         <div className={styles.plateMeta}>
           <span>From {formatMoney(coffee.sizes[0].price)}</span>
           {coffee.status !== "available" && (

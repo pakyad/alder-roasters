@@ -13,6 +13,8 @@
   gap: clamp(2rem, 5vw, 5rem);
 }
 .gallery {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-subtle);
   min-width: 0;
 }
 .summary {

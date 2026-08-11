@@ -6,39 +6,35 @@
 .top {
   display: grid;
   gap: var(--space-10);
-  grid-template-columns: 1fr minmax(18rem, 0.8fr);
+  grid-template-columns: 1fr minmax(22rem, 0.9fr);
   padding-bottom: var(--space-10);
 }
-.brand p,
-.newsletter p {
+.brand p {
   color: #cfc6bb;
   max-width: 34rem;
 }
-.newsletter label {
-  display: block;
-  font: 400 var(--font-size-lg)/1.2 var(--font-serif);
+.serviceNotes {
+  border-top: 1px solid #51463f;
+  margin: 0;
 }
-.field {
-  display: flex;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
+.serviceNotes div {
+  border-bottom: 1px solid #51463f;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 6rem 1fr;
+  padding-block: 0.75rem;
 }
-.field input {
-  background: transparent;
-  border: 1px solid #82766e;
+.serviceNotes dt {
+  color: #a99f96;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+}
+.serviceNotes dd {
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+.serviceNotes a {
   color: inherit;
-  font: inherit;
-  min-height: 2.75rem;
-  min-width: 0;
-  padding: 0.7rem 0.85rem;
-  width: 100%;
-}
-.field input::placeholder {
-  color: #b5aaa1;
-}
-.field button {
-  border-color: var(--color-text-inverted);
-  color: var(--color-text-inverted);
 }
 .links {
   border-block: 1px solid #51463f;
@@ -97,10 +93,6 @@
   }
 }
 @media (max-width: 28rem) {
-  .field {
-    align-items: stretch;
-    flex-direction: column;
-  }
   .links {
     grid-template-columns: 1fr;
   }

@@ -1,10 +1,10 @@
 .main {
-  padding-block: clamp(3rem, 7vw, 7rem);
+  padding-block: clamp(3rem, 6vw, 5.5rem);
 }
 .intro {
   display: grid;
   gap: 1rem;
-  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
   max-width: 55rem;
 }
 .intro p {
@@ -36,7 +36,7 @@
 }
 .grid {
   display: grid;
-  gap: 1rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
 }
 .empty {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Button, Container } from "@/components/ui";
+import { Container } from "@/components/ui";
 
 import { Logo } from "./Logo";
 import styles from "./Footer.module.css";
@@ -40,26 +40,28 @@ export function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <Logo />
-            <p>Seasonal coffee, roasted with care in Petaling Jaya.</p>
-          </div>
-          <form className={styles.newsletter} action="#" noValidate>
-            <label htmlFor="footer-email">Roastery notes, occasionally.</label>
             <p>
-              New coffees and practical brew guidance. This demonstration does not store your email.
+              Independent coffee roaster.
+              <br />
+              Petaling Jaya, Malaysia.
             </p>
-            <div className={styles.field}>
-              <input
-                id="footer-email"
-                type="email"
-                name="email"
-                autoComplete="email"
-                placeholder="you@example.com"
-              />
-              <Button type="submit" variant="secondary">
-                Join
-              </Button>
+          </div>
+          <dl className={styles.serviceNotes}>
+            <div>
+              <dt>Roasting</dt>
+              <dd>Weekly, in small batches</dd>
             </div>
-          </form>
+            <div>
+              <dt>Delivery</dt>
+              <dd>Malaysia / free over RM120</dd>
+            </div>
+            <div>
+              <dt>Questions</dt>
+              <dd>
+                <Link href="/faq">Read the FAQ</Link>
+              </dd>
+            </div>
+          </dl>
         </div>
         <div className={styles.links}>
           {footerGroups.map((group) => (
@@ -75,10 +77,7 @@ export function Footer() {
         </div>
         <div className={styles.legal}>
           <p>© {new Date().getFullYear()} ALDER ROASTERS</p>
-          <p>
-            ALDER ROASTERS is a fictional brand created as a portfolio case study. No orders or
-            payments are processed.
-          </p>
+          <p>Petaling Jaya, Malaysia</p>
         </div>
       </Container>
     </footer>
