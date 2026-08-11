@@ -102,9 +102,14 @@
   grid-template-columns: 2rem minmax(8rem, 0.75fr) minmax(10rem, 1fr) minmax(14rem, 1.4fr) auto;
   min-height: 6.5rem;
   text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard), padding-inline var(--duration-fast) var(--ease-standard);
 }
 .coffeeRow:hover .rowName {
-  color: var(--color-clay);
+  color: var(--color-roast);
+}
+.coffeeRow:hover {
+  background: rgba(248, 246, 241, 0.62);
+  padding-inline: 0.5rem;
 }
 .rowNumber,
 .rowOrigin,
@@ -321,7 +326,7 @@
 }
 .steps li::before {
   content: counter(steps, decimal-leading-zero);
-  color: var(--color-clay);
+  color: var(--color-brass);
   font-weight: 600;
 }
 .steps h3 {

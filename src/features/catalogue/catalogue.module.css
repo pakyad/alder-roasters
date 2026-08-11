@@ -1,6 +1,6 @@
 .bagStage {
   aspect-ratio: 4 / 5;
-  background: #e8dece;
+  background: #d9d3c8;
   overflow: hidden;
   position: relative;
 }
@@ -49,7 +49,8 @@
     transform var(--duration-fast) var(--ease-standard);
 }
 .plateImageLink:hover {
-  transform: translateY(-0.25rem);
+  box-shadow: 0 12px 28px rgba(23, 22, 20, 0.11);
+  transform: translateY(-0.15rem);
 }
 .plateImageLink:focus-visible {
   outline: 3px solid var(--color-focus);
@@ -125,6 +126,16 @@
   color: var(--color-ink);
   min-height: 3rem;
   padding: 0.6rem 2.2rem 0.6rem 0.75rem;
+  transition: border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+.filterForm select:hover,
+.configurator select:hover {
+  border-color: var(--color-ink);
+}
+.filterForm select:focus-visible,
+.configurator select:focus-visible {
+  border-color: var(--color-ink);
+  box-shadow: 0 0 0 1px var(--color-ink);
 }
 .applyButton,
 .addButton {
@@ -133,11 +144,18 @@
   color: var(--color-text-inverted);
   min-height: 3.25rem;
   padding: 0.75rem 1.25rem;
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
 }
 .applyButton:hover,
 .addButton:hover:not(:disabled) {
-  background: var(--color-clay);
-  border-color: var(--color-clay);
+  background: var(--color-roast);
+  border-color: var(--color-roast);
+  box-shadow: 0 5px 14px rgba(23, 22, 20, 0.14);
+  transform: translateY(-1px);
+}
+.applyButton:active,
+.addButton:active:not(:disabled) {
+  transform: scale(0.985);
 }
 .activeFilters {
   align-items: baseline;
@@ -179,6 +197,10 @@
   min-width: 5rem;
   padding: 0.65rem 1rem;
   text-align: center;
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+}
+.optionRow label:hover span {
+  border-color: var(--color-ink);
 }
 .optionRow input:checked + span {
   background: var(--color-espresso);
@@ -208,6 +230,11 @@
   gap: 0.65rem;
   grid-template-columns: auto 1fr;
   padding: 0.8rem;
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
+}
+.purchaseOptions label:hover {
+  background: var(--color-paper);
+  border-color: var(--color-ink);
 }
 .purchaseOptions span {
   display: grid;

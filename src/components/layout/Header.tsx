@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 
 import { Container } from "@/components/ui";
@@ -19,6 +20,7 @@ const primaryLinks = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
+  const pathname = usePathname();
   const { itemCount } = useCart();
 
   useEffect(() => {
@@ -50,16 +52,21 @@ export function Header() {
           aria-label="Primary navigation"
         >
           {primaryLinks.map((link) => (
-            <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={pathname?.startsWith(link.href) ? "page" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
               {link.label}
             </Link>
           ))}
         </nav>
         <nav className={styles.utilities} aria-label="Utility navigation">
-          <Link href="/search" aria-label="Search">
+          <Link href="/search" aria-label="Search" aria-current={pathname === "/search" ? "page" : undefined}>
             Search
           </Link>
-          <Link href="/cart">
+          <Link href="/cart" aria-current={pathname === "/cart" ? "page" : undefined}>
             Cart <span aria-label={`${itemCount} items`}>({itemCount})</span>
           </Link>
         </nav>

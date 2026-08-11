@@ -38,12 +38,12 @@ export function ProductBag({ coffee, priority = false }: { coffee: Coffee; prior
 }
 
 const labelPalettes: Record<string, { accent: string; stage: string }> = {
-  Kenya: { accent: "#a7472f", stage: "#ded0bc" },
-  Colombia: { accent: "#bb7a2e", stage: "#ddd5c7" },
-  Indonesia: { accent: "#59664d", stage: "#d4d2c2" },
-  Ethiopia: { accent: "#826247", stage: "#e2d8c8" },
-  Malaysia: { accent: "#46605a", stage: "#ccd3ca" },
-  Guatemala: { accent: "#75513f", stage: "#d8ccc2" },
-  Rwanda: { accent: "#6d4b66", stage: "#d8ced4" },
-  default: { accent: "#5a3e32", stage: "#e2d7c7" },
+  Kenya: { accent: "#6f3b32", stage: "#d3cbc0" },
+  Colombia: { accent: "#786541", stage: "#d6d0c5" },
+  Indonesia: { accent: "#445149", stage: "#cbc9bf" },
+  Ethiopia: { accent: "#665347", stage: "#d8d1c6" },
+  Malaysia: { accent: "#405955", stage: "#c8ceca" },
+  Guatemala: { accent: "#59463d", stage: "#d0c8c1" },
+  Rwanda: { accent: "#584957", stage: "#cec8cc" },
+  default: { accent: "#493a31", stage: "#d5cec3" },
 };

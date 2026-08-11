@@ -1,8 +1,9 @@
 .header {
-  background: color-mix(in srgb, var(--color-parchment) 94%, transparent);
+  background: rgba(240, 237, 230, 0.97);
   border-bottom: 1px solid var(--color-border-subtle);
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 .inner {
   align-items: center;
@@ -29,10 +30,27 @@
   font-size: var(--font-size-sm);
   text-decoration: none;
   text-underline-offset: 0.3em;
+  position: relative;
 }
-.navigation a:hover,
-.utilities a:hover {
-  text-decoration: underline;
+.navigation a::after,
+.utilities a::after {
+  background: var(--color-ink);
+  bottom: -0.38rem;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-fast) var(--ease-standard);
+  width: 100%;
+}
+.navigation a:hover::after,
+.utilities a:hover::after,
+.navigation a[aria-current="page"]::after,
+.utilities a[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 .menuButton {
   background: transparent;
@@ -41,6 +59,10 @@
   display: none;
   min-height: 2.75rem;
   min-width: 2.75rem;
+  transition: color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+.menuButton:active {
+  transform: scale(0.96);
 }
 
 @media (max-width: 52rem) {
@@ -65,15 +87,25 @@
     align-items: stretch;
     background: var(--color-paper);
     border-bottom: 1px solid var(--color-border-subtle);
-    display: none;
     flex-direction: column;
     gap: 0;
     inset: 100% 0 auto;
     padding: var(--space-4) var(--shell-gutter) var(--space-6);
     position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.5rem);
+    transition:
+      opacity var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard),
+      visibility var(--duration-fast);
+    visibility: hidden;
   }
   .navigation.open {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
   }
   .navigation a {
     align-items: center;
