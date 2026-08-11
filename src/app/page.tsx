@@ -16,11 +16,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const featured = coffees
     .filter((coffee) => coffee.featuredRank !== null)
-    .toSorted(
-      (a, b) =>
-        (a.featuredRank ?? Number.MAX_SAFE_INTEGER) -
-        (b.featuredRank ?? Number.MAX_SAFE_INTEGER),
-    )
+    .toSorted((left, right) => Number(left.featuredRank) - Number(right.featuredRank))
     .slice(0, 3);
 
   return (
