@@ -4,14 +4,20 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-11",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "routes": [
+    {
+      "pattern": "alder.iyadiman.me",
+      "custom_domain": true
+    }
+  ],
   "build": {
-    "command": "pnpm run build:worker",
+    "command": "pnpm run build:worker"
   },
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS",
+    "binding": "ASSETS"
   },
   "observability": {
-    "enabled": true,
-  },
+    "enabled": true
+  }
 }
