@@ -142,8 +142,11 @@ export function TasteMapExplorer({ coffees }: { coffees: readonly Coffee[] }) {
       </div>
 
       <div aria-hidden="true" className={styles.plot}>
-        <span className={styles.axisLabelY}>Delicate</span>
         <div className={styles.plotArea} ref={plotRef}>
+          <span className={`${styles.edgeLabel} ${styles.edgeTop}`}>Delicate</span>
+          <span className={`${styles.edgeLabel} ${styles.edgeBottom}`}>Full</span>
+          <span className={`${styles.edgeLabel} ${styles.edgeLeft}`}>Bright</span>
+          <span className={`${styles.edgeLabel} ${styles.edgeRight}`}>Comforting</span>
           {live.map((coffee) => {
             const isMatch = matches.some((match) => match.id === coffee.id);
             return (
@@ -163,11 +166,6 @@ export function TasteMapExplorer({ coffees }: { coffees: readonly Coffee[] }) {
               />
             );
           })}
-        </div>
-        <span className={styles.axisLabelY}>Full</span>
-        <div className={styles.axisLabelX}>
-          <span>Bright</span>
-          <span>Comforting</span>
         </div>
       </div>
 

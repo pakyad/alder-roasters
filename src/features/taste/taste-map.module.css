@@ -41,70 +41,88 @@
 
 .plot {
   display: none;
-  gap: var(--space-2);
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr auto;
 }
 @media (min-width: 60rem) {
   .plot {
-    display: grid;
+    display: block;
   }
 }
-.axisLabelY {
-  writing-mode: sideways-lr;
-  align-self: center;
+.plotArea {
+  aspect-ratio: 16 / 10;
+  background-image: radial-gradient(oklch(0.24 0.035 165 / 0.07) 1px, transparent 1px);
+  background-position: center;
+  background-size: 28px 28px;
+  position: relative;
+}
+.plotArea::before,
+.plotArea::after {
+  content: "";
+  position: absolute;
+}
+.plotArea::before {
+  background: var(--color-border-subtle);
+  height: 1px;
+  left: 0;
+  right: 0;
+  top: 50%;
+}
+.plotArea::after {
+  background: var(--color-border-subtle);
+  bottom: 0;
+  left: 50%;
+  top: 0;
+  width: 1px;
+}
+.edgeLabel {
   color: var(--color-text-secondary);
   font-size: var(--font-size-xs);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
+  position: absolute;
   text-transform: uppercase;
+  z-index: 1;
 }
-.plotArea {
-  border: 1px solid var(--color-border-subtle);
-  background:
-    linear-gradient(
-      to right,
-      transparent calc(50% - 1px),
-      var(--color-border-subtle) 50%,
-      transparent calc(50% + 0px)
-    ),
-    linear-gradient(
-      to bottom,
-      transparent calc(50% - 1px),
-      var(--color-border-subtle) 50%,
-      transparent calc(50% + 0px)
-    );
-  position: relative;
+.edgeTop {
+  left: 50%;
+  top: 0.75rem;
+  transform: translateX(-50%);
+}
+.edgeBottom {
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.edgeLeft {
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.edgeRight {
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .dot {
   border-radius: 999px;
-  height: 14px;
+  height: 13px;
   position: absolute;
   transform: translate(-50%, 50%);
   transition:
     opacity var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
     scale var(--duration-fast) var(--ease-standard),
     transform var(--duration-swift) var(--ease-out-soft);
-  width: 14px;
+  width: 13px;
 }
 .dot {
-  background: oklch(0.72 0.07 var(--dot-hue, 60));
-  opacity: 0.45;
+  background: oklch(0.6 0.11 var(--dot-hue, 60));
+  box-shadow: 0 2px 6px oklch(0.24 0.035 165 / 0.18);
+  opacity: 0.5;
 }
 .dotActive {
-  background: oklch(0.55 0.15 var(--dot-hue, 40));
-  box-shadow: 0 0 0 3px
-    color-mix(in oklch, var(--color-paper), oklch(0.6 0.16 var(--dot-hue, 40)) 30%);
+  background: oklch(0.5 0.14 var(--dot-hue, 40));
+  box-shadow: 0 3px 10px oklch(0.24 0.035 165 / 0.25);
   opacity: 1;
-  scale: 1.25;
-}
-.axisLabelX {
-  color: var(--color-text-secondary);
-  display: flex;
-  font-size: var(--font-size-xs);
-  grid-column: 2;
-  justify-content: space-between;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  scale: 1.3;
 }
 
 .matches {

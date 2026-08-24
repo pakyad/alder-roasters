@@ -47,7 +47,7 @@ export default function HomePage() {
               className={styles.heroActions}
               style={{ "--entrance-delay": "270ms" } as React.CSSProperties}
             >
-              <Button href="/shop" transitionTypes={["nav-forward"]} variant="light">
+              <Button href="/shop" transitionTypes={["nav-forward"]}>
                 See the coffee
               </Button>
               <Link href="/story" transitionTypes={["nav-forward"]}>
@@ -96,7 +96,6 @@ export default function HomePage() {
                 transitionTypes={["nav-forward"]}
                 {...reveal(index + 1, { "--row-hue": coffee.packageHue } as React.CSSProperties)}
               >
-                <span className={styles.rowNumber}>{String(index + 1).padStart(2, "0")}</span>
                 <span className={styles.rowOrigin}>
                   {coffee.origin.country}
                   <small>{coffee.process}</small>
@@ -129,14 +128,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section
-        className={styles.workingNote}
-        data-header-tone="dark"
-        tone="pandan"
-        blendIn
-        blendOut
-      >
-        <Steam intensity={0.7} />
+      <Section className={styles.workingNote}>
         <Container className={styles.noteGrid}>
           <p className={styles.noteLabel} {...reveal(0)}>
             How we work
@@ -160,27 +152,14 @@ export default function HomePage() {
 
       <Section tone="paper">
         <Container>
-          <div className={styles.split}>
+          <div className={styles.subsSplit}>
             <div className={styles.guideCopy} {...reveal(0)}>
               <p className={styles.kicker}>Subscriptions</p>
               <h2>Coffee that keeps up with you.</h2>
-              <dl className={styles.recipe}>
-                <div>
-                  <dt>Plans</dt>
-                  <dd>Roaster&rsquo;s Choice or one fixed coffee</dd>
-                </div>
-                <div>
-                  <dt>Every</dt>
-                  <dd>2 or 4 weeks</dd>
-                </div>
-                <div>
-                  <dt>Pause anytime</dt>
-                  <dd>Before each dispatch</dd>
-                </div>
-              </dl>
               <p>
                 Your first box shows exactly what ships, when it roasts and what recurs — before you
-                commit to anything.
+                commit to anything. Plans run every two or four weeks, and pausing takes one click
+                before each dispatch.
               </p>
               <Button href="/subscriptions" transitionTypes={["nav-forward"]}>
                 Configure a plan
@@ -255,7 +234,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section data-header-tone="dark" tone="pandan" blendIn>
+      <Section tone="paper">
         <Container className={styles.visitGrid}>
           <Image
             className={styles.editorialImage}
@@ -265,7 +244,7 @@ export default function HomePage() {
             width={1200}
             {...reveal(0)}
           />
-          <div className="on-dark" {...reveal(1)}>
+          <div {...reveal(1)}>
             <p className={styles.kicker}>Visit / Tasting room</p>
             <h2>The cupping table is open.</h2>
             <p className="text-secondary">
@@ -287,7 +266,7 @@ export default function HomePage() {
                 <dd>Wed–Sun, 9:00–17:00</dd>
               </div>
             </dl>
-            <Button href="/location" transitionTypes={["nav-forward"]} variant="light">
+            <Button href="/location" transitionTypes={["nav-forward"]} variant="secondary">
               Plan a visit
             </Button>
           </div>

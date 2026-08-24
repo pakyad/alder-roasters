@@ -169,7 +169,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <ol className={styles.chapters}>
               {storyChapters.map((chapter, index) => (
                 <li className={styles.chapter} key={chapter.label} {...reveal(index + 1)}>
-                  <span className={styles.chapterMark}>{String(index + 1).padStart(2, "0")}</span>
                   <div>
                     <h3>{chapter.label}</h3>
                     <p>{chapter.body}</p>

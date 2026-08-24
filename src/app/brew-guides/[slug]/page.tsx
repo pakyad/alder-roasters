@@ -44,8 +44,8 @@ export default async function GuidePage({ params }: Props) {
         })}
         id={`guide-jsonld-${guide.slug}`}
       />
-      <Section spacing="generous" tone="pandan" blendOut>
-        <Container className="on-dark">
+      <Section spacing="generous" tone="paper">
+        <Container>
           <div {...reveal(0)}>
             <Link href="/brew-guides" transitionTypes={["nav-back"]}>
               ← All brew guides
@@ -89,7 +89,7 @@ export default async function GuidePage({ params }: Props) {
         height={1100}
         style={{ width: "100%", maxHeight: "44rem", objectFit: "cover" }}
       />
-      <Section tone="pandan" blendIn blendOut>
+      <Section data-header-tone="dark" tone="pandan">
         <Container>
           <BrewTimer
             guideTitle={guide.title}
@@ -140,9 +140,6 @@ export default async function GuidePage({ params }: Props) {
           <ol className={styles.steps}>
             {guide.steps.map((step, index) => (
               <li key={step.title} {...reveal(index)}>
-                <span aria-hidden="true" className={styles.stepChip}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
                 <div>
                   <h3>{step.title}</h3>
                   <p>{step.instruction}</p>

@@ -21,7 +21,7 @@
   background: linear-gradient(
     175deg,
     var(--color-espresso) 0%,
-    var(--color-pandan-deep) 78%,
+    var(--color-pandan-deep) 60%,
     var(--color-pandan-ink) 100%
   );
   color: var(--color-text-inverted);
@@ -31,25 +31,6 @@
   background: linear-gradient(180deg, var(--color-pandan-deep) 0%, var(--color-pandan-ink) 100%);
   color: var(--color-text-inverted);
   position: relative;
-}
-/* Blend bridges: white melts into green (and back) with no hard seam. */
-.blendIn::before,
-.blendOut::after {
-  content: "";
-  inset-inline: 0;
-  pointer-events: none;
-  position: absolute;
-  z-index: 0;
-}
-.blendIn::before {
-  background: linear-gradient(180deg, var(--color-paper) 0%, transparent 100%);
-  height: clamp(4rem, 9vw, 7rem);
-  top: 0;
-}
-.blendOut::after {
-  background: linear-gradient(0deg, var(--color-paper) 0%, transparent 100%);
-  bottom: 0;
-  height: clamp(4rem, 9vw, 7rem);
 }
 .compact {
   padding-block: var(--space-8);
