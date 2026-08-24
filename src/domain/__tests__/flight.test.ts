@@ -32,10 +32,7 @@ describe("matchFlight", () => {
   });
 
   it("rewards matching flavour character and brew method", () => {
-    const picks = matchFlight(
-      { ...base, character: "floral", brewMethod: "espresso" },
-      coffees,
-    );
+    const picks = matchFlight({ ...base, character: "floral", brewMethod: "espresso" }, coffees);
     const names = picks.map((pick) => pick.coffee.name);
     expect(names).toContain("El Paraíso");
   });

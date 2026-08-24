@@ -33,13 +33,7 @@ export function RoastWeekPanel() {
       <dl className={styles.schedule}>
         <div>
           <dt>Order by</dt>
-          <dd>
-            {week ? (
-              formatCutoffDate(week.cutoffDate)
-            ) : (
-              "Sunday night (MYT)"
-            )}
-          </dd>
+          <dd>{week ? formatCutoffDate(week.cutoffDate) : "Sunday night (MYT)"}</dd>
         </div>
         <div>
           <dt>Roasted</dt>
@@ -62,9 +56,8 @@ export function RoastWeekPanel() {
       </dl>
       {week?.rolledToNextRoast && week.missedRoastDate && (
         <p className={styles.note}>
-          Sunday&rsquo;s cutoff for the {formatRoastDate(week.missedRoastDate)} roast has passed,
-          so your coffee joins the {formatRoastDate(week.roastDate)} roast — same care, one week
-          later.
+          Sunday&rsquo;s cutoff for the {formatRoastDate(week.missedRoastDate)} roast has passed, so
+          your coffee joins the {formatRoastDate(week.roastDate)} roast — same care, one week later.
         </p>
       )}
       <p className={styles.principle}>

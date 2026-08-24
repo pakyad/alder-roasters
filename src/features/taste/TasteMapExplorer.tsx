@@ -93,7 +93,11 @@ export function TasteMapExplorer({ coffees }: { coffees: readonly Coffee[] }) {
   const summary = `Showing ${matches.length} ${matches.length === 1 ? "coffee" : "coffees"} that are ${xLabel} and ${yLabel}.`;
 
   const suggestedCharacter: FlavourCharacter =
-    x < 3.5 ? ("floral" as FlavourCharacter) : x > 6.5 ? ("sweet" as FlavourCharacter) : ("fruit-forward" as FlavourCharacter);
+    x < 3.5
+      ? ("floral" as FlavourCharacter)
+      : x > 6.5
+        ? ("sweet" as FlavourCharacter)
+        : ("fruit-forward" as FlavourCharacter);
 
   return (
     <div className={styles.explorer}>

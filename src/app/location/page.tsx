@@ -83,9 +83,9 @@ export default function LocationPage() {
           <p className="eyebrow">The cupping table</p>
           <h2>First Saturdays, ten sharp.</h2>
           <p>
-            Once a month we set out the current range and taste it together, publicly. No
-            experience required — you smell, slurp and say what you notice. We explain what in the
-            variety, process or roast might have caused it, and nothing more formal than that.
+            Once a month we set out the current range and taste it together, publicly. No experience
+            required — you smell, slurp and say what you notice. We explain what in the variety,
+            process or roast might have caused it, and nothing more formal than that.
           </p>
           <dl className={styles.recipe}>
             <div>

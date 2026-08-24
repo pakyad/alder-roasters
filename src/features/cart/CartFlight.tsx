@@ -38,9 +38,19 @@ export function CartFlight() {
       const midY = Math.min(from.y, to.y) - 120;
       const animation = ghost.animate(
         [
-          { opacity: 1, transform: `translate(${from.x - 17}px, ${from.y - 22}px) scale(1) rotate(0deg)` },
-          { opacity: 0.95, transform: `translate(${midX - 17}px, ${midY}px) scale(0.72) rotate(14deg)`, offset: 0.55 },
-          { opacity: 0.35, transform: `translate(${to.x - 17}px, ${to.y - 22}px) scale(0.22) rotate(24deg)` },
+          {
+            opacity: 1,
+            transform: `translate(${from.x - 17}px, ${from.y - 22}px) scale(1) rotate(0deg)`,
+          },
+          {
+            opacity: 0.95,
+            transform: `translate(${midX - 17}px, ${midY}px) scale(0.72) rotate(14deg)`,
+            offset: 0.55,
+          },
+          {
+            opacity: 0.35,
+            transform: `translate(${to.x - 17}px, ${to.y - 22}px) scale(0.22) rotate(24deg)`,
+          },
         ],
         { duration: 680, easing: "cubic-bezier(0.45, 0, 0.15, 1)" },
       );

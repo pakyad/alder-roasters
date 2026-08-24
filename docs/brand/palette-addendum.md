@@ -5,22 +5,22 @@
 
 ## Core tokens (OKLCH)
 
-| Token | Value | Role |
-| --- | --- | --- |
-| `--color-paper` | `oklch(0.975 0.008 95)` | Default page surface — bright warm paper, not beige |
-| `--color-surface-raised` | `oklch(0.99 0.004 95)` | Cards, form fields, image mattes |
-| `--color-oat` | `oklch(0.93 0.022 90)` | Secondary sections, quiet selected states |
-| `--color-stone` | `oklch(0.72 0.018 95)` | Disabled decoration, soft dividers |
-| `--color-ink` | `oklch(0.24 0.035 165)` | Primary text — rainforest black-green undertone |
-| `--color-espresso` | `oklch(0.27 0.045 162)` | Dark chapters, footer |
-| `--color-espresso-raised` | `oklch(0.33 0.05 160)` | Raised surfaces inside dark chapters |
-| `--color-pandan` / `--color-roast` | `oklch(0.42 0.07 152)` | Origin/process context, secondary brand field |
-| `--color-moss` | `oklch(0.5 0.06 150)` | Supporting seasonal accent |
-| `--color-brass` | `oklch(0.68 0.11 80)` | Rare data highlight; never small-text foreground on light surfaces |
-| `--color-flame` | `oklch(0.63 0.19 41)` | Action accent, large display moments |
-| `--color-flame-strong` | `oklch(0.55 0.185 38)` | Filled buttons/controls with white text |
-| `--color-flame-bright` | `oklch(0.72 0.17 48)` | Selection highlight, decorative traces |
-| `--color-ceramic` | `oklch(0.52 0.06 220)` | Focus ring, informational guidance |
+| Token                              | Value                   | Role                                                               |
+| ---------------------------------- | ----------------------- | ------------------------------------------------------------------ |
+| `--color-paper`                    | `oklch(0.975 0.008 95)` | Default page surface — bright warm paper, not beige                |
+| `--color-surface-raised`           | `oklch(0.99 0.004 95)`  | Cards, form fields, image mattes                                   |
+| `--color-oat`                      | `oklch(0.93 0.022 90)`  | Secondary sections, quiet selected states                          |
+| `--color-stone`                    | `oklch(0.72 0.018 95)`  | Disabled decoration, soft dividers                                 |
+| `--color-ink`                      | `oklch(0.24 0.035 165)` | Primary text — rainforest black-green undertone                    |
+| `--color-espresso`                 | `oklch(0.27 0.045 162)` | Dark chapters, footer                                              |
+| `--color-espresso-raised`          | `oklch(0.33 0.05 160)`  | Raised surfaces inside dark chapters                               |
+| `--color-pandan` / `--color-roast` | `oklch(0.42 0.07 152)`  | Origin/process context, secondary brand field                      |
+| `--color-moss`                     | `oklch(0.5 0.06 150)`   | Supporting seasonal accent                                         |
+| `--color-brass`                    | `oklch(0.68 0.11 80)`   | Rare data highlight; never small-text foreground on light surfaces |
+| `--color-flame`                    | `oklch(0.63 0.19 41)`   | Action accent, large display moments                               |
+| `--color-flame-strong`             | `oklch(0.55 0.185 38)`  | Filled buttons/controls with white text                            |
+| `--color-flame-bright`             | `oklch(0.72 0.17 48)`   | Selection highlight, decorative traces                             |
+| `--color-ceramic`                  | `oklch(0.52 0.06 220)`  | Focus ring, informational guidance                                 |
 
 ## Semantic states
 

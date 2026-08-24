@@ -1,10 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  activeSegmentIndex,
-  buildTimerSegments,
-  formatClock,
-} from "../brew-timer";
+import { activeSegmentIndex, buildTimerSegments, formatClock } from "../brew-timer";
 
 const steps = [
   { title: "Prep", instruction: "Rinse." },

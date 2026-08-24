@@ -41,9 +41,7 @@ export function Header() {
 
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
-    const targets = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-header-tone]"),
-    );
+    const targets = Array.from(document.querySelectorAll<HTMLElement>("[data-header-tone]"));
     if (targets.length === 0) {
       const frame = requestAnimationFrame(() => setOnDark(false));
       return () => cancelAnimationFrame(frame);
@@ -70,11 +68,7 @@ export function Header() {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [menuOpen]);
 
-  const headerClass = [
-    styles.header,
-    scrolled ? styles.scrolled : "",
-    onDark ? styles.onDark : "",
-  ]
+  const headerClass = [styles.header, scrolled ? styles.scrolled : "", onDark ? styles.onDark : ""]
     .filter(Boolean)
     .join(" ");
 
@@ -110,7 +104,12 @@ export function Header() {
           ))}
         </nav>
         <nav className={styles.utilities} aria-label="Utility navigation">
-          <Link href="/search" transitionTypes={["nav-forward"]} aria-label="Search" aria-current={pathname === "/search" ? "page" : undefined}>
+          <Link
+            href="/search"
+            transitionTypes={["nav-forward"]}
+            aria-label="Search"
+            aria-current={pathname === "/search" ? "page" : undefined}
+          >
             Search
           </Link>
           <Link

@@ -32,17 +32,21 @@ export default function HomePage() {
       <section className={styles.hero}>
         <Container className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <p className={`${styles.kicker} entrance`}>
-              Independent roaster / Petaling Jaya
-            </p>
+            <p className={`${styles.kicker} entrance`}>Independent roaster / Petaling Jaya</p>
             <h1 className="entrance" style={{ "--entrance-delay": "90ms" } as React.CSSProperties}>
               Coffee from the current harvest.
             </h1>
-            <p className={`lead entrance`} style={{ "--entrance-delay": "180ms" } as React.CSSProperties}>
+            <p
+              className={`lead entrance`}
+              style={{ "--entrance-delay": "180ms" } as React.CSSProperties}
+            >
               Seven coffees, roasted in small batches. Each one comes with a plain tasting note and
               a tested place to start brewing.
             </p>
-            <div className={styles.heroActions} style={{ "--entrance-delay": "270ms" } as React.CSSProperties}>
+            <div
+              className={styles.heroActions}
+              style={{ "--entrance-delay": "270ms" } as React.CSSProperties}
+            >
               <Button href="/shop" transitionTypes={["nav-forward"]}>
                 See the coffee
               </Button>
@@ -125,11 +129,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section
-        className={styles.workingNote}
-        data-header-tone="dark"
-        tone="pandan"
-      >
+      <Section className={styles.workingNote} data-header-tone="dark" tone="pandan">
         <Steam intensity={0.7} />
         <Container className={styles.noteGrid}>
           <p className={styles.noteLabel} {...reveal(0)}>
@@ -142,7 +142,9 @@ export default function HomePage() {
           </h2>
           <div className={styles.noteCopy} {...reveal(2)}>
             <p>We keep the range short enough to know every coffee properly.</p>
-            <p>Origin and process stay visible, but the first description is always about the cup.</p>
+            <p>
+              Origin and process stay visible, but the first description is always about the cup.
+            </p>
             <Link href="/story" transitionTypes={["nav-forward"]}>
               About the roastery →
             </Link>
@@ -171,8 +173,8 @@ export default function HomePage() {
                 </div>
               </dl>
               <p>
-                Your first box shows exactly what ships, when it roasts and what recurs — before
-                you commit to anything.
+                Your first box shows exactly what ships, when it roasts and what recurs — before you
+                commit to anything.
               </p>
               <Button href="/subscriptions" transitionTypes={["nav-forward"]}>
                 Configure a plan
@@ -235,7 +237,11 @@ export default function HomePage() {
                 </div>
               </dl>
               <p>One repeatable starting point for bright, aromatic coffees.</p>
-              <Button href="/brew-guides/v60-clear-sweet" transitionTypes={["nav-forward"]} variant="secondary">
+              <Button
+                href="/brew-guides/v60-clear-sweet"
+                transitionTypes={["nav-forward"]}
+                variant="secondary"
+              >
                 Read the method
               </Button>
             </div>
@@ -258,8 +264,8 @@ export default function HomePage() {
             <h2>The cupping table is open.</h2>
             <p className="text-secondary">
               Every first Saturday, we cup the current range publicly — no experience needed, no
-              charge, just clean palates and honest notes. Weekdays the bar pours two coffees
-              black, and the roastery works behind glass.
+              charge, just clean palates and honest notes. Weekdays the bar pours two coffees black,
+              and the roastery works behind glass.
             </p>
             <dl className={styles.recipe}>
               <div>

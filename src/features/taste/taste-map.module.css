@@ -60,8 +60,18 @@
 .plotArea {
   border: 1px solid var(--color-border-subtle);
   background:
-    linear-gradient(to right, transparent calc(50% - 1px), var(--color-border-subtle) 50%, transparent calc(50% + 0px)),
-    linear-gradient(to bottom, transparent calc(50% - 1px), var(--color-border-subtle) 50%, transparent calc(50% + 0px));
+    linear-gradient(
+      to right,
+      transparent calc(50% - 1px),
+      var(--color-border-subtle) 50%,
+      transparent calc(50% + 0px)
+    ),
+    linear-gradient(
+      to bottom,
+      transparent calc(50% - 1px),
+      var(--color-border-subtle) 50%,
+      transparent calc(50% + 0px)
+    );
   position: relative;
 }
 .dot {
@@ -81,7 +91,8 @@
 }
 .dotActive {
   background: oklch(0.55 0.15 var(--dot-hue, 40));
-  box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-paper), oklch(0.6 0.16 var(--dot-hue, 40)) 30%);
+  box-shadow: 0 0 0 3px
+    color-mix(in oklch, var(--color-paper), oklch(0.6 0.16 var(--dot-hue, 40)) 30%);
   opacity: 1;
   scale: 1.25;
 }

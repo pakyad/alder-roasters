@@ -127,7 +127,9 @@
   display: none;
   min-height: 2.75rem;
   min-width: 2.75rem;
-  transition: color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
 }
 .onDark .menuButton {
   color: var(--color-text-inverted);

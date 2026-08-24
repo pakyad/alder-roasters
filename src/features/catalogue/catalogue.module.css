@@ -155,7 +155,9 @@
   color: var(--color-ink);
   min-height: 3rem;
   padding: 0.6rem 2.2rem 0.6rem 0.75rem;
-  transition: border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
 }
 .filterForm select:hover,
 .configurator select:hover {
@@ -173,7 +175,11 @@
   color: var(--color-text-inverted);
   min-height: 3.25rem;
   padding: 0.75rem 1.25rem;
-  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
 }
 .applyButton:hover,
 .addButton:hover:not(:disabled) {
@@ -261,7 +267,10 @@
   min-width: 5rem;
   padding: 0.65rem 1rem;
   text-align: center;
-  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
 }
 .optionRow label:hover span {
   border-color: var(--color-ink);
@@ -294,7 +303,9 @@
   gap: 0.65rem;
   grid-template-columns: auto 1fr;
   padding: 0.8rem;
-  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
 }
 .purchaseOptions label:hover {
   background: var(--color-paper);

@@ -19,8 +19,8 @@ export function GrindAdvice({ coffee }: { coffee: Coffee }) {
   if (preferred !== "espresso" && profile.grinder === "no-grinder") {
     return (
       <p className={styles.note} role="status">
-        For your {labelMethod(profile.method)}, choose the <strong>{label(preferred)}</strong>{" "}
-        grind below — no grinder needed.
+        For your {labelMethod(profile.method)}, choose the <strong>{label(preferred)}</strong> grind
+        below — no grinder needed.
       </p>
     );
   }

@@ -66,8 +66,7 @@ export function CartDrawer() {
       <div className={styles.inner}>
         <header className={styles.head}>
           <h2 className={styles.title}>
-            Your cart{" "}
-            <span className={styles.count}>{hydrated ? itemCount : ""}</span>
+            Your cart <span className={styles.count}>{hydrated ? itemCount : ""}</span>
           </h2>
           <button aria-label="Close cart" className={styles.close} onClick={close} type="button">
             ×
@@ -93,7 +92,11 @@ export function CartDrawer() {
                   <select
                     id={`qty-${line.id}`}
                     onChange={(event) =>
-                      dispatch({ type: "quantity", id: line.id, quantity: Number(event.target.value) })
+                      dispatch({
+                        type: "quantity",
+                        id: line.id,
+                        quantity: Number(event.target.value),
+                      })
                     }
                     value={line.quantity}
                   >

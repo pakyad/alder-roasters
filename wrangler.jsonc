@@ -7,17 +7,17 @@
   "routes": [
     {
       "pattern": "alder.iyadiman.me",
-      "custom_domain": true
-    }
+      "custom_domain": true,
+    },
   ],
   "build": {
-    "command": "pnpm run build:worker"
+    "command": "pnpm run build:worker",
   },
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
   },
   "observability": {
-    "enabled": true
-  }
+    "enabled": true,
+  },
 }

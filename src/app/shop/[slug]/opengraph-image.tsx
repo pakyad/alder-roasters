@@ -17,42 +17,40 @@ export default async function CoffeeOpengraphImage({
   const hue = coffee.packageHue;
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        background: "#f7f4ec",
+        color: "#20302a",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        justifyContent: "space-between",
+        padding: "72px",
+        position: "relative",
+        width: "100%",
+      }}
+    >
+      <div style={{ display: "flex", fontSize: 26, letterSpacing: 10 }}>ALDER ROASTERS</div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ color: "#5a6b60", display: "flex", fontSize: 32, marginBottom: 18 }}>
+          {coffee.origin.country} · {coffee.process}
+        </div>
+        <div style={{ display: "flex", fontSize: 96 }}>{coffee.name}</div>
+        <div style={{ display: "flex", fontSize: 34, marginTop: 22, maxWidth: 900 }}>
+          {coffee.taste.notes.join(" · ")}
+        </div>
+      </div>
       <div
         style={{
-          background: "#f7f4ec",
-          color: "#20302a",
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "space-between",
-          padding: "72px",
-          position: "relative",
+          backgroundColor: `hsl(${hue}deg 45% 42%)`,
+          bottom: 0,
+          height: 14,
+          left: 0,
+          position: "absolute",
           width: "100%",
         }}
-      >
-        <div style={{ display: "flex", fontSize: 26, letterSpacing: 10 }}>ALDER ROASTERS</div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ color: "#5a6b60", display: "flex", fontSize: 32, marginBottom: 18 }}>
-            {coffee.origin.country} · {coffee.process}
-          </div>
-          <div style={{ display: "flex", fontSize: 96 }}>{coffee.name}</div>
-          <div style={{ display: "flex", fontSize: 34, marginTop: 22, maxWidth: 900 }}>
-            {coffee.taste.notes.join(" · ")}
-          </div>
-        </div>
-        <div
-          style={{
-            backgroundColor: `hsl(${hue}deg 45% 42%)`,
-            bottom: 0,
-            height: 14,
-            left: 0,
-            position: "absolute",
-            width: "100%",
-          }}
-        />
-      </div>
-    ),
+      />
+    </div>,
     size,
   );
 }

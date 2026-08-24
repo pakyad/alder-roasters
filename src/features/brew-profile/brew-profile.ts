@@ -13,11 +13,7 @@ import { useEffect, useState } from "react";
 export const BREW_PROFILE_KEY = "alder-brew-profile-v1";
 
 export const brewMethodsForProfile = ["filter", "immersion", "espresso"] as const;
-export const grindersForProfile = [
-  "no-grinder",
-  "hand-grinder",
-  "electric-grinder",
-] as const;
+export const grindersForProfile = ["no-grinder", "hand-grinder", "electric-grinder"] as const;
 
 export type ProfileBrewMethod = (typeof brewMethodsForProfile)[number];
 export type ProfileGrinder = (typeof grindersForProfile)[number];

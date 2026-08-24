@@ -106,7 +106,8 @@
   gap: var(--space-4);
 }
 .chapterMark {
-  border-top: 2px solid color-mix(in oklch, var(--color-cherry) 60%, oklch(0.6 0.14 var(--bag-hue, 60)));
+  border-top: 2px solid
+    color-mix(in oklch, var(--color-cherry) 60%, oklch(0.6 0.14 var(--bag-hue, 60)));
   font-family: var(--font-sans);
   font-size: var(--font-size-sm);
   letter-spacing: 0.14em;

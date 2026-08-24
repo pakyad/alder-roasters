@@ -38,12 +38,26 @@ export function ProductBag({
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient gradientUnits="userSpaceOnUse" id={`bag-body-${coffee.id}`} x1="0" x2="1" y1="0" y2="0">
+          <linearGradient
+            gradientUnits="userSpaceOnUse"
+            id={`bag-body-${coffee.id}`}
+            x1="0"
+            x2="1"
+            y1="0"
+            y2="0"
+          >
             <stop offset="0" stopColor={`oklch(0.66 0.105 ${hue})`} />
             <stop offset="0.55" stopColor={`oklch(0.60 0.115 ${hue})`} />
             <stop offset="1" stopColor={`oklch(0.50 0.105 ${hue})`} />
           </linearGradient>
-          <linearGradient gradientUnits="userSpaceOnUse" id={`bag-fold-${coffee.id}`} x1="0" x2="0" y1="0" y2="1">
+          <linearGradient
+            gradientUnits="userSpaceOnUse"
+            id={`bag-fold-${coffee.id}`}
+            x1="0"
+            x2="0"
+            y1="0"
+            y2="1"
+          >
             <stop offset="0" stopColor={`oklch(0.44 0.085 ${hue})`} />
             <stop offset="1" stopColor={`oklch(0.38 0.075 ${hue})`} />
           </linearGradient>
@@ -69,17 +83,43 @@ export function ProductBag({
 
         {/* label plate */}
         <g className={styles.bagPlate}>
-          <rect fill="var(--color-surface-raised)" height="150" stroke="var(--color-ink)" strokeWidth="1.5" width="164" x="78" y="152" />
-          <text className={styles.bagWordmark} x="160" y="178">ALDER</text>
-          <line stroke="var(--color-border-strong)" strokeWidth="1" x1="94" x2="226" y1="188" y2="188" />
-          <text className={styles.bagName} x="160" y="216">{coffee.name}</text>
+          <rect
+            fill="var(--color-surface-raised)"
+            height="150"
+            stroke="var(--color-ink)"
+            strokeWidth="1.5"
+            width="164"
+            x="78"
+            y="152"
+          />
+          <text className={styles.bagWordmark} x="160" y="178">
+            ALDER
+          </text>
+          <line
+            stroke="var(--color-border-strong)"
+            strokeWidth="1"
+            x1="94"
+            x2="226"
+            y1="188"
+            y2="188"
+          />
+          <text className={styles.bagName} x="160" y="216">
+            {coffee.name}
+          </text>
           <text className={styles.bagOrigin} x="160" y="238">
             {coffee.origin.country.toUpperCase()}
           </text>
           <text className={styles.bagMeta} x="160" y="258">
             {`${coffee.process} · ${coffee.sizes[0].grams}G`}
           </text>
-          <line stroke="var(--color-border-subtle)" strokeWidth="1" x1="94" x2="226" y1="272" y2="272" />
+          <line
+            stroke="var(--color-border-subtle)"
+            strokeWidth="1"
+            x1="94"
+            x2="226"
+            y1="272"
+            y2="272"
+          />
           <text className={styles.bagLot} x="160" y="290">{`LOT ${coffee.harvest}`}</text>
         </g>
       </svg>
@@ -103,13 +143,34 @@ export function ProductBagBack({ coffee }: { coffee: Coffee }) {
       >
         <rect fill={`oklch(0.58 0.10 ${hue})`} height="316" rx="8" width="228" x="46" y="46" />
         <rect fill={`oklch(0.50 0.095 ${hue})`} height="30" rx="6" width="228" x="46" y="46" />
-        <rect fill="var(--color-surface-raised)" height="230" stroke="var(--color-ink)" strokeWidth="1.5" width="180" x="70" y="96" />
-        <text className={styles.bagBackHeading} x="160" y="126">BREW NOTES</text>
+        <rect
+          fill="var(--color-surface-raised)"
+          height="230"
+          stroke="var(--color-ink)"
+          strokeWidth="1.5"
+          width="180"
+          x="70"
+          y="96"
+        />
+        <text className={styles.bagBackHeading} x="160" y="126">
+          BREW NOTES
+        </text>
         <foreignObject height="150" width="156" x="82" y="140">
           <div className={styles.bagBackCopy}>{coffee.roastIntent}</div>
         </foreignObject>
-        <line stroke="var(--color-border-subtle)" strokeWidth="1" x1="86" x2="234" y1="292" y2="292" />
-        <text className={styles.bagLot} x="160" y="308">{`LOT ${coffee.harvest} · ${coffee.origin.locality.toUpperCase()}`}</text>
+        <line
+          stroke="var(--color-border-subtle)"
+          strokeWidth="1"
+          x1="86"
+          x2="234"
+          y1="292"
+          y2="292"
+        />
+        <text
+          className={styles.bagLot}
+          x="160"
+          y="308"
+        >{`LOT ${coffee.harvest} · ${coffee.origin.locality.toUpperCase()}`}</text>
       </svg>
       <span className="sr-only">The reverse of the {coffee.name} bag with brewing notes</span>
     </div>

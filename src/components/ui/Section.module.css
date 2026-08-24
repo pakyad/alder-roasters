@@ -17,7 +17,12 @@
   background: var(--color-pandan-wash);
 }
 .dark {
-  background: linear-gradient(175deg, var(--color-espresso) 0%, var(--color-pandan-deep) 78%, var(--color-pandan-ink) 100%);
+  background: linear-gradient(
+    175deg,
+    var(--color-espresso) 0%,
+    var(--color-pandan-deep) 78%,
+    var(--color-pandan-ink) 100%
+  );
   color: var(--color-text-inverted);
 }
 .pandan {

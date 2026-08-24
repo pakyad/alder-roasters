@@ -20,9 +20,8 @@ type ViewTransitionComponent = ComponentType<{
  * App Router; other environments (unit tests, plain React) do not export it.
  * There it degrades to a plain fragment — no transition, no breakage.
  */
-const MaybeViewTransition = (
-  ReactModule as unknown as { ViewTransition?: ViewTransitionComponent }
-).ViewTransition;
+const MaybeViewTransition = (ReactModule as unknown as { ViewTransition?: ViewTransitionComponent })
+  .ViewTransition;
 
 export function Morph({ name, children }: MorphProps) {
   if (!MaybeViewTransition) return <>{children}</>;

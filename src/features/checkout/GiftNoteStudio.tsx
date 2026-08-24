@@ -52,7 +52,9 @@ export function GiftNoteStudio() {
           {note ? (
             <p className={noteStyles.note}>{note}</p>
           ) : (
-            <p className={`${noteStyles.note} ${noteStyles.placeholder}`}>Your note appears here.</p>
+            <p className={`${noteStyles.note} ${noteStyles.placeholder}`}>
+              Your note appears here.
+            </p>
           )}
           <span className={noteStyles.from}>— from the ALDER roastery bench</span>
         </div>

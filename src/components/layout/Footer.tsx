@@ -78,7 +78,10 @@ export function Footer() {
         </div>
         <div className={styles.legal}>
           <BrewSetupControl />
-          <p>ALDER ROASTERS is a fictional brand created as a portfolio case study. No orders or payments are processed.</p>
+          <p>
+            ALDER ROASTERS is a fictional brand created as a portfolio case study. No orders or
+            payments are processed.
+          </p>
           <p>© {new Date().getFullYear()} ALDER ROASTERS · Petaling Jaya, Malaysia</p>
         </div>
       </Container>

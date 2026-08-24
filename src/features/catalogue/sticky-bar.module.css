@@ -49,7 +49,9 @@
   color: var(--color-text-inverted);
   grid-column: 1 / -1;
   min-height: 3rem;
-  transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
 }
 .add:hover {
   background: var(--color-roast);

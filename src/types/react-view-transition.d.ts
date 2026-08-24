@@ -7,8 +7,7 @@ import type { ComponentType, ReactNode } from "react";
  */
 declare module "react" {
   export type ViewTransitionAnimation =
-    | string
-    | ({ default?: string } & Record<string, string | undefined>);
+    string | ({ default?: string } & Record<string, string | undefined>);
 
   export interface ViewTransitionProps {
     children?: ReactNode;

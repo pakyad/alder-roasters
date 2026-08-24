@@ -93,11 +93,7 @@ export function FlightFinder({ coffees }: { coffees: readonly Coffee[] }) {
         </label>
       </div>
 
-      <ol
-        className={styles.picks}
-        role="list"
-        key={`${mood}|${character}|${method}`}
-      >
+      <ol className={styles.picks} role="list" key={`${mood}|${character}|${method}`}>
         {picks.map((pick, index) => (
           <li
             key={pick.coffee.id}
@@ -113,8 +109,12 @@ export function FlightFinder({ coffees }: { coffees: readonly Coffee[] }) {
       </ol>
 
       <div className={styles.action}>
-        <Button onClick={addFlight}>Add the flight — three 250g bags, {formatMoney({ currency: "MYR", amount: total })}</Button>
-        <p className={styles.terms}>One-off purchase · whole bean · shipped with this week&rsquo;s roast</p>
+        <Button onClick={addFlight}>
+          Add the flight — three 250g bags, {formatMoney({ currency: "MYR", amount: total })}
+        </Button>
+        <p className={styles.terms}>
+          One-off purchase · whole bean · shipped with this week&rsquo;s roast
+        </p>
       </div>
     </div>
   );

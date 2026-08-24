@@ -19,7 +19,12 @@ export function Steam({ intensity = 1 }: { intensity?: number }) {
       <svg preserveAspectRatio="none" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <filter id={filterId} x="-20%" y="-40%" width="140%" height="180%">
-            <feTurbulence baseFrequency={baseFrequency} numOctaves="2" seed="11" type="fractalNoise">
+            <feTurbulence
+              baseFrequency={baseFrequency}
+              numOctaves="2"
+              seed="11"
+              type="fractalNoise"
+            >
               <animate
                 attributeName="baseFrequency"
                 dur="16s"
@@ -27,7 +32,12 @@ export function Steam({ intensity = 1 }: { intensity?: number }) {
                 values={`${baseFrequency}; 0.017 0.036; ${baseFrequency}`}
               />
             </feTurbulence>
-            <feDisplacementMap in="SourceGraphic" scale="70" xChannelSelector="R" yChannelSelector="G" />
+            <feDisplacementMap
+              in="SourceGraphic"
+              scale="70"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
             <feGaussianBlur stdDeviation="14" />
           </filter>
           <linearGradient id={gradientId} x1="0" x2="0" y1="1" y2="0">
@@ -37,7 +47,14 @@ export function Steam({ intensity = 1 }: { intensity?: number }) {
           </linearGradient>
         </defs>
         <g filter={`url(#${filterId})`}>
-          <ellipse className={styles.wisp} cx="180" cy="190" fill={`url(#${gradientId})`} rx="90" ry="120" />
+          <ellipse
+            className={styles.wisp}
+            cx="180"
+            cy="190"
+            fill={`url(#${gradientId})`}
+            rx="90"
+            ry="120"
+          />
           <ellipse
             className={`${styles.wisp} ${styles.wispSlow}`}
             cx="330"

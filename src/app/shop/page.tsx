@@ -39,47 +39,47 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
             </p>
           </header>
           <div className={styles.tools} {...reveal(1)}>
-          <p aria-live="polite">
-            <strong>{results.length}</strong> {results.length === 1 ? "coffee" : "coffees"}
-          </p>
-          <form className={styles.sort} action="/shop">
-            <label htmlFor="catalogue-sort">Sort by</label>
-            <select id="catalogue-sort" name="sort" defaultValue={sort}>
-              <option value="featured">Featured</option>
-              <option value="price-ascending">Price: low to high</option>
-              <option value="name">Name</option>
-            </select>
-            {filters.flavour && <input type="hidden" name="flavour" value={filters.flavour} />}
-            {filters.brewMethod && <input type="hidden" name="brew" value={filters.brewMethod} />}
-            {filters.availability && (
-              <input type="hidden" name="availability" value={filters.availability} />
+            <p aria-live="polite">
+              <strong>{results.length}</strong> {results.length === 1 ? "coffee" : "coffees"}
+            </p>
+            <form className={styles.sort} action="/shop">
+              <label htmlFor="catalogue-sort">Sort by</label>
+              <select id="catalogue-sort" name="sort" defaultValue={sort}>
+                <option value="featured">Featured</option>
+                <option value="price-ascending">Price: low to high</option>
+                <option value="name">Name</option>
+              </select>
+              {filters.flavour && <input type="hidden" name="flavour" value={filters.flavour} />}
+              {filters.brewMethod && <input type="hidden" name="brew" value={filters.brewMethod} />}
+              {filters.availability && (
+                <input type="hidden" name="availability" value={filters.availability} />
+              )}
+              <button type="submit">Apply</button>
+            </form>
+          </div>
+          <CatalogueFilters filters={filters} sort={sort} resultCount={results.length} />
+          <section
+            className={styles.grid}
+            aria-label="Coffee results"
+            key={results.map((coffee) => coffee.id).join("|")}
+          >
+            {results.length ? (
+              results.map((coffee, index) => (
+                <ProductPlate coffee={coffee} key={coffee.id} priority={index < 3} />
+              ))
+            ) : (
+              <div className={styles.empty}>
+                <h2>No coffees match just yet.</h2>
+                <p>Clear the filters and explore the full seasonal range.</p>
+                <Link href={`/shop?sort=${sort}`}>View all coffees</Link>
+              </div>
             )}
-            <button type="submit">Apply</button>
-          </form>
-        </div>
-        <CatalogueFilters filters={filters} sort={sort} resultCount={results.length} />
-        <section
-          className={styles.grid}
-          aria-label="Coffee results"
-          key={results.map((coffee) => coffee.id).join("|")}
-        >
-          {results.length ? (
-            results.map((coffee, index) => (
-              <ProductPlate coffee={coffee} key={coffee.id} priority={index < 3} />
-            ))
-          ) : (
-            <div className={styles.empty}>
-              <h2>No coffees match just yet.</h2>
-              <p>Clear the filters and explore the full seasonal range.</p>
-              <Link href={`/shop?sort=${sort}`}>View all coffees</Link>
-            </div>
-          )}
-        </section>
-        <p className={styles.seasonNote}>
-          Sold-out lots remain in the archive. Coffee changes with each harvest; the catalogue
-          should too.
-        </p>
-      </Container>
+          </section>
+          <p className={styles.seasonNote}>
+            Sold-out lots remain in the archive. Coffee changes with each harvest; the catalogue
+            should too.
+          </p>
+        </Container>
       </div>
     </PageTransition>
   );

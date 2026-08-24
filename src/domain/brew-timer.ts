@@ -24,7 +24,9 @@ export function buildTimerSegments(
   totalSeconds: number,
 ): TimerSegment[] {
   const timed = steps
-    .filter((step): step is TimedStepInput & { atSeconds: number } => typeof step.atSeconds === "number")
+    .filter(
+      (step): step is TimedStepInput & { atSeconds: number } => typeof step.atSeconds === "number",
+    )
     .sort((a, b) => a.atSeconds - b.atSeconds);
   return timed.map((step, index) => ({
     title: step.title,

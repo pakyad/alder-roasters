@@ -103,7 +103,9 @@
   min-height: 6.5rem;
   position: relative;
   text-decoration: none;
-  transition: background-color var(--duration-swift) var(--ease-standard), padding-inline var(--duration-swift) var(--ease-standard);
+  transition:
+    background-color var(--duration-swift) var(--ease-standard),
+    padding-inline var(--duration-swift) var(--ease-standard);
 }
 .coffeeRow:hover .rowName {
   color: var(--color-cherry-strong);
@@ -751,4 +753,3 @@
     align-items: center;
   }
 }
-

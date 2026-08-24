@@ -91,7 +91,11 @@ export default async function GuidePage({ params }: Props) {
       />
       <Section tone="pandan">
         <Container>
-          <BrewTimer guideTitle={guide.title} steps={guide.steps} totalSeconds={guide.totalSeconds} />
+          <BrewTimer
+            guideTitle={guide.title}
+            steps={guide.steps}
+            totalSeconds={guide.totalSeconds}
+          />
         </Container>
       </Section>
       <Section tone="pandan-wash">
@@ -107,7 +111,14 @@ export default async function GuidePage({ params }: Props) {
                 {guide.equipment.map((item) => (
                   <li key={item}>
                     <svg aria-hidden="true" viewBox="0 0 16 16">
-                      <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                      <circle
+                        cx="8"
+                        cy="8"
+                        r="7"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                      />
                       <path
                         d="M4.8 8.2l2.1 2.1 4.3-4.6"
                         fill="none"
@@ -162,7 +173,9 @@ export default async function GuidePage({ params }: Props) {
                     href={`/shop/${coffee.slug}`}
                     key={coffee.id}
                     transitionTypes={["nav-forward"]}
-                    {...reveal(index + 1, { "--row-hue": coffee.packageHue } as React.CSSProperties)}
+                    {...reveal(index + 1, {
+                      "--row-hue": coffee.packageHue,
+                    } as React.CSSProperties)}
                   >
                     <span aria-hidden="true" className={styles.recoBag}>
                       <ProductBag bare coffee={coffee} />

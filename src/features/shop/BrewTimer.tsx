@@ -223,7 +223,14 @@ export function BrewTimer({
               </>
             )}
             {!running && finished && (
-              <button onClick={() => { lastIndex.current = -1; setElapsed(0); setFinished(false); }} type="button">
+              <button
+                onClick={() => {
+                  lastIndex.current = -1;
+                  setElapsed(0);
+                  setFinished(false);
+                }}
+                type="button"
+              >
                 Brew again
               </button>
             )}
