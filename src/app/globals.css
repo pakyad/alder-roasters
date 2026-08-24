@@ -1,8 +1,8 @@
 :root {
-  /* Tropical Workshop palette — OKLCH. See docs/brand/palette-addendum.md */
-  --color-paper: oklch(0.955 0.018 135);
-  --color-surface-raised: oklch(0.975 0.014 130);
-  --color-oat: oklch(0.915 0.03 115);
+  /* Two-color system: pure white against the ALDER green. See palette-addendum. */
+  --color-paper: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-oat: #ffffff;
   --color-stone: oklch(0.7 0.025 120);
   --color-ink: oklch(0.24 0.035 165);
   --color-espresso: oklch(0.27 0.045 162);
@@ -14,21 +14,21 @@
   --color-flame: oklch(0.63 0.19 41);
   --color-flame-strong: oklch(0.55 0.185 38);
   --color-flame-bright: oklch(0.72 0.17 48);
-  /* Cherry & Pandan chapter pair — coffee cherry against leaf */
+  /* Cherry accent — punctuation, never a surface */
   --color-cherry: oklch(0.62 0.19 25);
   --color-cherry-strong: oklch(0.54 0.19 27);
   --color-cherry-bright: oklch(0.72 0.16 33);
-  --color-cherry-wash: oklch(0.94 0.026 25);
+  --color-cherry-wash: #ffffff;
   --color-pandan-deep: oklch(0.27 0.052 158);
   --color-pandan-ink: oklch(0.21 0.042 162);
-  --color-pandan-wash: oklch(0.925 0.04 150);
+  --color-pandan-wash: #ffffff;
   --color-ceramic: oklch(0.52 0.06 220);
   --color-text: var(--color-ink);
   --color-text-secondary: oklch(0.41 0.035 145);
   --color-text-inverted: oklch(0.96 0.01 95);
   --color-text-disabled: oklch(0.58 0.02 110);
-  --color-border-subtle: oklch(0.86 0.022 130);
-  --color-border: oklch(0.76 0.03 130);
+  --color-border-subtle: oklch(0.9 0.012 140);
+  --color-border: oklch(0.82 0.02 140);
   --color-border-strong: oklch(0.55 0.03 130);
   --color-focus: var(--color-ceramic);
   --color-success: oklch(0.5 0.09 150);
@@ -59,8 +59,8 @@
   --space-12: 4rem;
   --space-16: 6rem;
   --space-20: 8rem;
-  --section-space: clamp(4.5rem, 8vw, 8rem);
-  --section-space-large: clamp(5.5rem, 9vw, 9.5rem);
+  --section-space: clamp(6rem, 10vw, 10rem);
+  --section-space-large: clamp(7rem, 12vw, 12rem);
   --shell-gutter: clamp(1.25rem, 3.5vw, 3.5rem);
   --width-shell: 90rem;
   --width-content: 72rem;
@@ -212,6 +212,18 @@ svg {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+/* Token override for content sitting on deep green: hairlines, secondary
+   text and links re-tune to the dark world without touching components. */
+.on-dark {
+  --color-border-subtle: oklch(0.96 0.01 95 / 0.16);
+  --color-border: oklch(0.96 0.01 95 / 0.26);
+  --color-border-strong: oklch(0.96 0.01 95 / 0.4);
+  --color-text-secondary: oklch(0.96 0.01 95 / 0.72);
+  color: var(--color-text-inverted);
+}
+.on-dark a {
+  color: var(--color-text-inverted);
 }
 .display {
   font: 400 var(--font-size-display)/0.96 var(--font-serif);

@@ -51,6 +51,16 @@
 .text:hover {
   color: var(--color-roast);
 }
+.light {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--color-ink);
+}
+.light:hover {
+  background: var(--color-flame-bright);
+  border-color: var(--color-flame-bright);
+  color: var(--color-pandan-ink);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .button {

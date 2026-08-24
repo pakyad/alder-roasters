@@ -46,15 +46,18 @@ export function Header() {
       const frame = requestAnimationFrame(() => setOnDark(false));
       return () => cancelAnimationFrame(frame);
     }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting);
-        if (visible.length === 0) return;
-        visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        setOnDark(visible[0].target.getAttribute("data-header-tone") === "dark");
-      },
-      { rootMargin: "-30% 0px -55% 0px" },
-    );
+    // Tone is derived from live geometry on every threshold crossing, so a
+    // layout shift can never leave the header stuck in the wrong world.
+    const computeTone = () => {
+      const bandTop = window.innerHeight * 0.3;
+      const bandBottom = window.innerHeight * 0.45;
+      const dark = targets.some((target) => {
+        const rect = target.getBoundingClientRect();
+        return rect.top <= bandBottom && rect.bottom >= bandTop;
+      });
+      setOnDark(dark);
+    };
+    const observer = new IntersectionObserver(computeTone);
     targets.forEach((target) => observer.observe(target));
     return () => observer.disconnect();
   }, [pathname]);

@@ -1,6 +1,18 @@
 .hero {
-  background: var(--color-paper);
-  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(175deg, var(--color-pandan-deep) 0%, var(--color-pandan-ink) 100%);
+  color: var(--color-text-inverted);
+  overflow: hidden;
+  position: relative;
+}
+.hero::after {
+  background: linear-gradient(0deg, #ffffff 0%, transparent 100%);
+  content: "";
+  height: clamp(4rem, 9vw, 7rem);
+  inset-inline: 0;
+  bottom: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
 }
 .heroGrid {
   display: grid;
@@ -8,6 +20,7 @@
   grid-template-columns: minmax(18rem, 0.78fr) minmax(0, 1.22fr);
   min-height: min(42rem, calc(100vh - 7rem));
   padding-right: 0;
+  padding-bottom: clamp(4rem, 9vw, 7rem);
 }
 .heroCopy {
   align-self: center;
@@ -22,7 +35,11 @@
   margin-bottom: var(--space-8);
   text-wrap: balance;
 }
+.heroCopy .kicker {
+  color: oklch(0.96 0.01 95 / 0.66);
+}
 .heroCopy :global(.lead) {
+  color: oklch(0.96 0.01 95 / 0.88);
   max-width: 36rem;
 }
 .kicker {
@@ -44,7 +61,9 @@
   object-position: center 46%;
 }
 .heroMedia figcaption {
-  background: var(--color-ink);
+  background: oklch(0.21 0.042 162 / 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   bottom: 0;
   color: var(--color-text-inverted);
   display: flex;
@@ -56,6 +75,7 @@
   position: absolute;
   right: 0;
   text-transform: uppercase;
+  z-index: 1;
 }
 .heroMedia img {
   outline: 1px solid rgba(0, 0, 0, 0.08);
@@ -69,7 +89,7 @@
   margin-top: var(--space-8);
 }
 .heroActions a:last-child {
-  color: var(--color-ink);
+  color: var(--color-text-inverted);
 }
 .inventory {
   padding-block: clamp(4rem, 7vw, 6.5rem);
@@ -324,6 +344,8 @@
   background: var(--color-paper);
   border: 1px solid var(--color-border);
   border-top: 2px solid var(--color-cherry);
+  color: var(--color-ink);
+  --color-text-secondary: oklch(0.41 0.035 145);
   padding: var(--space-8);
 }
 .calculator label,
@@ -630,7 +652,8 @@
   text-decoration: none;
 }
 .emptyState {
-  background: var(--color-oat);
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-subtle);
   margin-top: var(--space-8);
   padding: var(--space-8);
 }

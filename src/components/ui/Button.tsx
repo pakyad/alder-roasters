@@ -5,7 +5,7 @@ import styles from "./Button.module.css";
 
 type BaseProps = {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "text";
+  variant?: "primary" | "secondary" | "text" | "light";
   className?: string;
 };
 

@@ -74,7 +74,9 @@
   margin: 0;
 }
 .archiveBanner {
-  background: var(--color-oat);
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-cherry);
   margin-bottom: 2rem;
   padding: var(--space-6);
 }
