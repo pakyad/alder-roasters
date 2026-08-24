@@ -13,4 +13,4 @@ test-results/
 .DS_Store
 Thumbs.db
 .playwright-mcp/
-qa3-*.png
+qa*.png
