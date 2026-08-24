@@ -34,7 +34,7 @@
 }
 .summary {
   background: var(--color-paper);
-  border: 1px solid var(--color-border-subtle);
+  border: 1px solid var(--color-pandan);
   margin: 0;
   padding: var(--space-3) var(--space-4);
 }
@@ -49,9 +49,14 @@
 }
 .plotArea {
   aspect-ratio: 16 / 10;
-  background-image: radial-gradient(oklch(0.24 0.035 165 / 0.07) 1px, transparent 1px);
+  background:
+    radial-gradient(oklch(0.96 0.01 95 / 0.09) 1px, transparent 1px),
+    linear-gradient(165deg, var(--color-pandan-deep) 0%, var(--color-pandan-ink) 100%);
   background-position: center;
-  background-size: 28px 28px;
+  background-size: 26px 26px, cover;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px oklch(0.96 0.01 95 / 0.08);
+  overflow: hidden;
   position: relative;
 }
 .plotArea::before,
@@ -60,21 +65,21 @@
   position: absolute;
 }
 .plotArea::before {
-  background: var(--color-border-subtle);
+  background: oklch(0.96 0.01 95 / 0.16);
   height: 1px;
-  left: 0;
-  right: 0;
+  left: 8%;
+  right: 8%;
   top: 50%;
 }
 .plotArea::after {
-  background: var(--color-border-subtle);
-  bottom: 0;
+  background: oklch(0.96 0.01 95 / 0.16);
+  bottom: 8%;
   left: 50%;
-  top: 0;
+  top: 8%;
   width: 1px;
 }
 .edgeLabel {
-  color: var(--color-text-secondary);
+  color: oklch(0.96 0.01 95 / 0.62);
   font-size: var(--font-size-xs);
   letter-spacing: 0.14em;
   position: absolute;
@@ -83,27 +88,27 @@
 }
 .edgeTop {
   left: 50%;
-  top: 0.75rem;
+  top: 1rem;
   transform: translateX(-50%);
 }
 .edgeBottom {
-  bottom: 0.75rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
 }
 .edgeLeft {
-  left: 0.75rem;
+  left: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
 .edgeRight {
-  right: 0.75rem;
+  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
 .dot {
   border-radius: 999px;
-  height: 13px;
+  height: 14px;
   position: absolute;
   transform: translate(-50%, 50%);
   transition:
@@ -111,16 +116,21 @@
     box-shadow var(--duration-fast) var(--ease-standard),
     scale var(--duration-fast) var(--ease-standard),
     transform var(--duration-swift) var(--ease-out-soft);
-  width: 13px;
+  width: 14px;
 }
 .dot {
-  background: oklch(0.6 0.11 var(--dot-hue, 60));
-  box-shadow: 0 2px 6px oklch(0.24 0.035 165 / 0.18);
-  opacity: 0.5;
+  background: oklch(0.78 0.08 var(--dot-hue, 60));
+  box-shadow: 0 2px 10px oklch(0.96 0.01 95 / 0.18);
+  opacity: 0.55;
+}
+.dot:hover {
+  opacity: 0.9;
 }
 .dotActive {
-  background: oklch(0.5 0.14 var(--dot-hue, 40));
-  box-shadow: 0 3px 10px oklch(0.24 0.035 165 / 0.25);
+  background: oklch(0.88 0.07 var(--dot-hue, 40));
+  box-shadow:
+    0 0 0 3px oklch(0.96 0.01 95 / 0.22),
+    0 3px 12px oklch(0.96 0.01 95 / 0.28);
   opacity: 1;
   scale: 1.3;
 }
@@ -139,7 +149,7 @@
   }
 }
 .matchCard {
-  border-top: 2px solid var(--color-ink);
+  border-top: 2px solid var(--color-pandan);
   color: inherit;
   display: grid;
   gap: 0.3rem;
