@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+import { PageTransition } from "../../components/motion/PageTransition";
+import { reveal } from "../../components/motion/reveal";
 import { Container, Section } from "../../components/ui";
 import { brewGuides } from "../../content/guides";
 import styles from "../../features/home/editorial.module.css";
+
 export const metadata: Metadata = {
   title: "Brew guides",
   description: "Practical, forgiving coffee recipes for V60, AeroPress and home espresso.",
 };
+
 export default function BrewGuidesPage() {
   return (
-    <>
+    <PageTransition>
       <Section spacing="generous">
         <Container>
-          <div className={styles.pageHero}>
+          <div className={styles.pageHero} {...reveal(0)}>
             <p className="eyebrow">Brew guides</p>
             <h1>
               Good starting points,
@@ -30,8 +35,8 @@ export default function BrewGuidesPage() {
       <Section tone="oat">
         <Container>
           <div className={styles.grid3}>
-            {brewGuides.map((guide) => (
-              <article className={styles.guideCard} key={guide.slug}>
+            {brewGuides.map((guide, index) => (
+              <article className={styles.guideCard} key={guide.slug} {...reveal(index)}>
                 <Image
                   className={styles.guideCardImage}
                   src="/images/guides/pour-over.webp"
@@ -47,13 +52,15 @@ export default function BrewGuidesPage() {
                     {guide.difficulty} · {guide.timeMinutes} min · {guide.ratio.coffeeGrams}g /{" "}
                     {guide.ratio.waterGrams}g
                   </p>
-                  <Link href={`/brew-guides/${guide.slug}`}>Follow the recipe</Link>
+                  <Link href={`/brew-guides/${guide.slug}`} transitionTypes={["nav-forward"]}>
+                    Follow the recipe
+                  </Link>
                 </div>
               </article>
             ))}
           </div>
         </Container>
       </Section>
-    </>
+    </PageTransition>
   );
 }

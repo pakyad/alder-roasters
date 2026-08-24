@@ -3,7 +3,8 @@ import { Instrument_Sans, Newsreader } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { Announcement, Footer, Header } from "@/components/layout";
-import { CartProvider } from "@/features/cart";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { CartDrawer, CartFlight, CartProvider } from "@/features/cart";
 
 import "./globals.css";
 
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     >
       <body>
         <CartProvider>
+          <ScrollProgress />
           <a className="skip-link" href="#main-content">
             Skip to main content
           </a>
@@ -44,6 +46,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             {children}
           </main>
           <Footer />
+          <CartDrawer />
+          <CartFlight />
         </CartProvider>
       </body>
     </html>

@@ -1,30 +1,44 @@
 :root {
-  --color-ink: #171614;
-  --color-espresso: #24201c;
-  --color-roast: #46372e;
-  --color-parchment: #f0ede6;
-  --color-paper: #f8f6f1;
-  --color-oat: #ddd7cd;
-  --color-stone: #aaa298;
-  --color-clay: #6c574a;
-  --color-moss: #4e5a50;
-  --color-brass: #8a734b;
+  /* Tropical Workshop palette — OKLCH. See docs/brand/palette-addendum.md */
+  --color-paper: oklch(0.955 0.018 135);
+  --color-surface-raised: oklch(0.975 0.014 130);
+  --color-oat: oklch(0.915 0.03 115);
+  --color-stone: oklch(0.7 0.025 120);
+  --color-ink: oklch(0.24 0.035 165);
+  --color-espresso: oklch(0.27 0.045 162);
+  --color-espresso-raised: oklch(0.33 0.05 160);
+  --color-roast: oklch(0.42 0.07 152);
+  --color-pandan: oklch(0.42 0.07 152);
+  --color-moss: oklch(0.5 0.06 150);
+  --color-brass: oklch(0.68 0.11 80);
+  --color-flame: oklch(0.63 0.19 41);
+  --color-flame-strong: oklch(0.55 0.185 38);
+  --color-flame-bright: oklch(0.72 0.17 48);
+  /* Cherry & Pandan chapter pair — coffee cherry against leaf */
+  --color-cherry: oklch(0.62 0.19 25);
+  --color-cherry-strong: oklch(0.54 0.19 27);
+  --color-cherry-bright: oklch(0.72 0.16 33);
+  --color-cherry-wash: oklch(0.94 0.026 25);
+  --color-pandan-deep: oklch(0.27 0.052 158);
+  --color-pandan-ink: oklch(0.21 0.042 162);
+  --color-pandan-wash: oklch(0.925 0.04 150);
+  --color-ceramic: oklch(0.52 0.06 220);
   --color-text: var(--color-ink);
-  --color-text-secondary: #625d56;
-  --color-text-inverted: #f3f0e9;
-  --color-text-disabled: #8b857e;
-  --color-border-subtle: #d2cdc4;
-  --color-border: #aaa39a;
-  --color-border-strong: #6d6760;
-  --color-focus: #315f67;
-  --color-success: #48624a;
-  --color-success-surface: #e7eee4;
-  --color-warning: #7a4b10;
-  --color-warning-surface: #f5ead4;
-  --color-error: #8e3e32;
-  --color-error-surface: #f6e3df;
-  --color-info: #3f5962;
-  --color-info-surface: #e5ecee;
+  --color-text-secondary: oklch(0.41 0.035 145);
+  --color-text-inverted: oklch(0.96 0.01 95);
+  --color-text-disabled: oklch(0.58 0.02 110);
+  --color-border-subtle: oklch(0.86 0.022 130);
+  --color-border: oklch(0.76 0.03 130);
+  --color-border-strong: oklch(0.55 0.03 130);
+  --color-focus: var(--color-ceramic);
+  --color-success: oklch(0.5 0.09 150);
+  --color-success-surface: oklch(0.94 0.04 145);
+  --color-warning: oklch(0.5 0.11 70);
+  --color-warning-surface: oklch(0.96 0.045 85);
+  --color-error: oklch(0.5 0.15 30);
+  --color-error-surface: oklch(0.95 0.03 25);
+  --color-info: oklch(0.46 0.07 225);
+  --color-info-surface: oklch(0.94 0.025 220);
   --font-sans: var(--font-instrument-sans), "Arial", sans-serif;
   --font-serif: var(--font-newsreader), "Georgia", serif;
   --font-size-xs: 0.8125rem;
@@ -45,14 +59,26 @@
   --space-12: 4rem;
   --space-16: 6rem;
   --space-20: 8rem;
-  --section-space: clamp(3.5rem, 6vw, 6.5rem);
-  --section-space-large: clamp(5rem, 8vw, 8rem);
-  --shell-gutter: clamp(1rem, 3vw, 3rem);
+  --section-space: clamp(4.5rem, 8vw, 8rem);
+  --section-space-large: clamp(5.5rem, 9vw, 9.5rem);
+  --shell-gutter: clamp(1.25rem, 3.5vw, 3.5rem);
   --width-shell: 90rem;
   --width-content: 72rem;
   --width-narrow: 46rem;
   --duration-fast: 180ms;
+  --duration-instant: 100ms;
+  --duration-swift: 260ms;
+  --duration-flow: 520ms;
+  --duration-cinematic: 840ms;
   --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.21, 1);
+  --ease-in-out-soft: cubic-bezier(0.45, 0, 0.15, 1);
+  --ease-spring: linear(
+    0, 0.241, 0.455, 0.647, 0.817, 0.953, 1.058, 1.114, 1.128, 1.111, 1.067,
+    1.005, 0.946, 0.903, 0.883, 0.882, 0.895, 0.912, 0.93, 0.945, 0.958, 0.967,
+    0.973, 0.977, 0.981, 0.983, 0.985, 0.987, 0.989, 0.991, 0.993, 0.995, 0.997,
+    0.999, 1
+  );
 }
 
 *,
@@ -61,14 +87,14 @@
   box-sizing: border-box;
 }
 html {
-  background: var(--color-parchment);
+  background: var(--color-paper);
   color: var(--color-text);
   scroll-behavior: smooth;
 }
 body {
-  background: var(--color-parchment);
+  background: var(--color-paper);
   color: var(--color-text);
-  font: 400 var(--font-size-body)/1.6 var(--font-sans);
+  font: 400 var(--font-size-body)/1.65 var(--font-sans);
   margin: 0;
   min-width: 20rem;
   text-rendering: optimizeLegibility;
@@ -130,7 +156,7 @@ svg {
   max-width: 100%;
 }
 ::selection {
-  background: #c8b996;
+  background: var(--color-flame-bright);
   color: var(--color-ink);
 }
 :focus-visible {
@@ -178,6 +204,175 @@ svg {
   width: 1px;
 }
 
+/* ------------------------------------------------------------------ */
+/* Motion system — scroll reveals, entrances, progress, transitions.  */
+/* Every effect degrades to the static page when unsupported.         */
+/* ------------------------------------------------------------------ */
+
+/* Scroll-driven reveal: elements rise as they enter the viewport.
+   Stagger siblings with an inline `--reveal-delay`. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+      animation: reveal-rise var(--ease-out-soft) both;
+      animation-delay: var(--reveal-delay, 0ms);
+      animation-range: entry 0% entry 55%;
+      animation-timeline: view();
+    }
+  }
+}
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mount entrance: for above-the-fold choreography (plays once on load).
+   Stagger with an inline `--entrance-delay`. */
+@media (prefers-reduced-motion: no-preference) {
+  .entrance {
+    animation: entrance-rise 0.7s var(--ease-out-soft) both;
+    animation-delay: var(--entrance-delay, 0ms);
+  }
+  .entrance-media {
+    animation: entrance-media 1.1s var(--ease-in-out-soft) both;
+    animation-delay: var(--entrance-delay, 120ms);
+  }
+}
+@keyframes entrance-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes entrance-media {
+  from {
+    clip-path: inset(6% 4% 10% 4%);
+    opacity: 0;
+    transform: scale(1.025);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Reading-progress hairline pinned to the top of the viewport. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root);
+      background: linear-gradient(90deg, var(--color-flame), var(--color-cherry));
+      height: 2px;
+      left: 0;
+      position: fixed;
+      top: 0;
+      transform-origin: 0 50%;
+      width: 100%;
+      z-index: 60;
+    }
+  }
+}
+@keyframes progress-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* View transitions — directional navigation, anchored header, bag morphs. */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+::view-transition-old(.nav-forward) {
+  --slide-offset: -3rem;
+  animation:
+    150ms ease-in both vt-fade reverse,
+    400ms ease-in-out both vt-slide reverse;
+}
+::view-transition-new(.nav-forward) {
+  --slide-offset: 3rem;
+  animation:
+    210ms ease-out 150ms both vt-fade,
+    400ms ease-in-out both vt-slide;
+}
+::view-transition-old(.nav-back) {
+  --slide-offset: 3rem;
+  animation:
+    150ms ease-in both vt-fade reverse,
+    400ms ease-in-out both vt-slide reverse;
+}
+::view-transition-new(.nav-back) {
+  --slide-offset: -3rem;
+  animation:
+    210ms ease-out 150ms both vt-fade,
+    400ms ease-in-out both vt-slide;
+}
+@keyframes vt-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes vt-slide {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
+/* Shared-element bag morph: soften pixel interpolation mid-flight. */
+::view-transition-group(.morph) {
+  animation-duration: 480ms;
+  animation-timing-function: var(--ease-in-out-soft);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: vt-via-blur;
+}
+@keyframes vt-via-blur {
+  30% {
+    filter: blur(2px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-image-pair(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+  .scroll-progress {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -190,6 +385,11 @@ svg {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+  [data-reveal],
+  .entrance,
+  .entrance-media {
+    animation: none !important;
+  }
 }
 
 @media (forced-colors: active) {
@@ -197,3 +397,4 @@ svg {
     outline-color: Highlight;
   }
 }
+

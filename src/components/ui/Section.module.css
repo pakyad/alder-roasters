@@ -2,7 +2,7 @@
   color: var(--color-text);
 }
 .parchment {
-  background: var(--color-parchment);
+  background: var(--color-paper);
 }
 .paper {
   background: var(--color-paper);
@@ -10,9 +10,20 @@
 .oat {
   background: var(--color-oat);
 }
+.cherry-wash {
+  background: var(--color-cherry-wash);
+}
+.pandan-wash {
+  background: var(--color-pandan-wash);
+}
 .dark {
-  background: var(--color-espresso);
+  background: linear-gradient(175deg, var(--color-espresso) 0%, var(--color-pandan-deep) 78%, var(--color-pandan-ink) 100%);
   color: var(--color-text-inverted);
+}
+.pandan {
+  background: linear-gradient(180deg, var(--color-pandan-deep) 0%, var(--color-pandan-ink) 100%);
+  color: var(--color-text-inverted);
+  position: relative;
 }
 .compact {
   padding-block: var(--space-8);

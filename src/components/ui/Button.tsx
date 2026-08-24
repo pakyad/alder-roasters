@@ -1,36 +1,56 @@
 import Link from "next/link";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
 import styles from "./Button.module.css";
 
-type ButtonProps = {
+type BaseProps = {
   children: ReactNode;
-  href?: string;
   variant?: "primary" | "secondary" | "text";
   className?: string;
+};
+
+type AnchorButtonProps = BaseProps & {
+  href: string;
+  /** View-transition types forwarded to the underlying Link. */
+  transitionTypes?: string[];
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">;
+
+type ActionButtonProps = BaseProps & {
+  href?: undefined;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export function Button({
-  children,
-  href,
-  variant = "primary",
-  className = "",
-  type = "button",
-  ...buttonProps
-}: ButtonProps) {
-  const classes = `${styles.button} ${styles[variant]} ${className}`.trim();
+export type ButtonProps = AnchorButtonProps | ActionButtonProps;
 
-  if (href) {
+function omit<T extends object, K extends keyof T>(object: T, ...keys: K[]): Omit<T, K> {
+  const result = { ...object };
+  for (const key of keys) delete result[key];
+  return result;
+}
+
+export function Button(props: ButtonProps) {
+  const variant = props.variant ?? "primary";
+  const classes = `${styles.button} ${styles[variant]} ${props.className ?? ""}`.trim();
+
+  if (props.href !== undefined) {
+    const anchorProps = omit(
+      props as AnchorButtonProps,
+      "children",
+      "variant",
+      "className",
+      "href",
+    );
     return (
-      <Link className={classes} href={href}>
-        {children}
+      <Link className={classes} href={props.href} {...anchorProps}>
+        {props.children}
       </Link>
     );
   }
 
+  const buttonProps = omit(props as ActionButtonProps, "children", "variant", "className");
+  const type = (props as ActionButtonProps).type ?? "button";
   return (
     <button className={classes} type={type} {...buttonProps}>
-      {children}
+      {props.children}
     </button>
   );
 }

@@ -6,6 +6,7 @@ import { Button, Container } from "@/components/ui";
 import { CART_STORAGE_KEY, cartTotal, useCart } from "@/features/cart";
 import { formatMoney } from "@/lib/money";
 import { validateCheckout, type CheckoutErrors, type CheckoutFields } from "./validation";
+import { GiftNoteStudio } from "./GiftNoteStudio";
 import styles from "../cart/Commerce.module.css";
 
 const initial: CheckoutFields = { name: "", email: "", address: "", city: "", postcode: "" };
@@ -127,6 +128,7 @@ export function CheckoutView() {
               </span>
             </label>
           </fieldset>
+          <GiftNoteStudio />
           <section className={styles.demoNote} aria-labelledby="payment-title">
             <h2 id="payment-title">Portfolio demo payment</h2>
             <p>

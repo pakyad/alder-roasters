@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { PageTransition } from "../../components/motion/PageTransition";
+import { reveal } from "../../components/motion/reveal";
 import { Container } from "../../components/ui";
 import { coffees } from "../../content/coffees";
 import { filterCoffees, parseCoffeeFilters, sortCoffees } from "../../domain/catalogue";
@@ -26,16 +28,17 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
   const sort = sorts.includes(requestedSort) ? requestedSort : "featured";
   const results = sortCoffees(filterCoffees(coffees, filters), sort);
   return (
-    <div className={styles.main}>
-      <Container>
-        <header className={styles.intro}>
-          <p className="eyebrow">Coffee / current release</p>
-          <h1>What is on the shelf.</h1>
-          <p className="lead">
-            Choose by the way it tastes or the way you brew. Prices start at 250g.
-          </p>
-        </header>
-        <div className={styles.tools}>
+    <PageTransition>
+      <div className={styles.main}>
+        <Container>
+          <header className={styles.intro} {...reveal(0)}>
+            <p className="eyebrow">Coffee / current release</p>
+            <h1>What is on the shelf.</h1>
+            <p className="lead">
+              Choose by the way it tastes or the way you brew. Prices start at 250g.
+            </p>
+          </header>
+          <div className={styles.tools} {...reveal(1)}>
           <p aria-live="polite">
             <strong>{results.length}</strong> {results.length === 1 ? "coffee" : "coffees"}
           </p>
@@ -55,7 +58,11 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
           </form>
         </div>
         <CatalogueFilters filters={filters} sort={sort} resultCount={results.length} />
-        <section className={styles.grid} aria-label="Coffee results">
+        <section
+          className={styles.grid}
+          aria-label="Coffee results"
+          key={results.map((coffee) => coffee.id).join("|")}
+        >
           {results.length ? (
             results.map((coffee, index) => (
               <ProductPlate coffee={coffee} key={coffee.id} priority={index < 3} />
@@ -73,6 +80,7 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
           should too.
         </p>
       </Container>
-    </div>
+      </div>
+    </PageTransition>
   );
 }

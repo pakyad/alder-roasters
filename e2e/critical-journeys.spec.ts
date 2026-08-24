@@ -12,9 +12,11 @@ test.describe("critical commerce journey", () => {
   }) => {
     await page.goto("/shop/nyeri-gichathaini");
     await page.getByRole("radio", { name: /1000g/ }).check();
-    await page.getByLabel("Grind").selectOption("filter");
+    await page.getByLabel("Grind", { exact: true }).selectOption("filter");
     await page.getByRole("button", { name: "Add to cart" }).click();
     await expect(page.getByText(/Gichathaini, 1000g, filter added/)).toBeVisible();
+    // The quick drawer opens on add; dismiss it to continue browsing as a user would.
+    await page.keyboard.press("Escape");
 
     await page.getByRole("link", { name: /Cart/ }).click();
     await expect(page.getByRole("heading", { name: "Review your coffee" })).toBeVisible();
@@ -61,7 +63,10 @@ test("search connects guides and products", async ({ page }) => {
 
 for (const route of ["/", "/shop", "/shop/nyeri-gichathaini", "/cart"]) {
   test(`${route} has no automatically detectable accessibility violations`, async ({ page }) => {
+    // Audit the settled page: entrance/reveal animations blend colours mid-flight.
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(route);
+    await page.waitForLoadState("networkidle");
     const results = await new AxeBuilder({ page }).analyze();
     expect(results.violations).toEqual([]);
   });

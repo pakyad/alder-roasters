@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/components/ui";
+import { BrewSetupControl } from "@/features/brew-profile/BrewSetupControl";
 
 import { Logo } from "./Logo";
 import styles from "./Footer.module.css";
@@ -76,8 +77,9 @@ export function Footer() {
           ))}
         </div>
         <div className={styles.legal}>
-          <p>© {new Date().getFullYear()} ALDER ROASTERS</p>
-          <p>Petaling Jaya, Malaysia</p>
+          <BrewSetupControl />
+          <p>ALDER ROASTERS is a fictional brand created as a portfolio case study. No orders or payments are processed.</p>
+          <p>© {new Date().getFullYear()} ALDER ROASTERS · Petaling Jaya, Malaysia</p>
         </div>
       </Container>
     </footer>

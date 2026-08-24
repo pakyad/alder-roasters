@@ -54,7 +54,16 @@ export interface Coffee {
     readonly characters: readonly FlavourCharacter[];
     readonly brightness: 1 | 2 | 3 | 4 | 5;
     readonly body: 1 | 2 | 3 | 4 | 5;
+    /** Position on the accessible taste map: 0 = bright/delicate, 10 = comforting/full. */
+    readonly coordinates: {
+      readonly brightComforting: number;
+      readonly delicateFull: number;
+    };
   };
+  /** Hue anchor (degrees) driving the parametric packaging colour. */
+  readonly packageHue: number;
+  /** Archived coffees keep their editorial page but are no longer part of the live range. */
+  readonly archived?: boolean;
   readonly brewMethods: readonly BrewMethod[];
   readonly story: {
     readonly place: string;

@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+
+import { PageTransition } from "../../components/motion/PageTransition";
+import { reveal } from "../../components/motion/reveal";
 import { Container, Section } from "../../components/ui";
 import styles from "../../features/home/editorial.module.css";
+
 export const metadata: Metadata = {
   title: "Our story",
   description: "Why ALDER makes exceptional seasonal coffee easier to choose, brew and enjoy.",
 };
+
 export default function StoryPage() {
   return (
-    <>
+    <PageTransition>
       <Section spacing="generous">
         <Container>
-          <div className={styles.pageHero}>
+          <div className={styles.pageHero} {...reveal(0)}>
             <p className="eyebrow">Our story</p>
             <h1>
               Exacting work.
@@ -35,8 +40,10 @@ export default function StoryPage() {
       <Section>
         <Container>
           <div className={styles.storyBody}>
-            <p className="eyebrow">Petaling Jaya · Since 2018</p>
-            <article>
+            <p className="eyebrow" {...reveal(0)}>
+              Petaling Jaya · Since 2018
+            </p>
+            <article {...reveal(1)}>
               <h2>Three coffees and a weekly public tasting</h2>
               <p>
                 ALDER started in the back half of a former joinery workshop. Its founders had worked
@@ -61,6 +68,6 @@ export default function StoryPage() {
           </div>
         </Container>
       </Section>
-    </>
+    </PageTransition>
   );
 }

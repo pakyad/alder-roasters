@@ -1,0 +1,35 @@
+.control {
+  display: grid;
+  gap: var(--space-2);
+}
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin: 0;
+}
+.hint {
+  color: oklch(0.75 0.02 120);
+  font-size: var(--font-size-xs);
+  margin: 0;
+}
+.row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.row select {
+  background: var(--color-espresso-raised);
+  border: 1px solid oklch(0.45 0.03 140);
+  color: var(--color-text-inverted);
+  max-width: 100%;
+  padding: 0.4rem;
+}
+.clear {
+  background: none;
+  border: none;
+  color: oklch(0.75 0.02 120);
+  font-size: var(--font-size-xs);
+  padding: 0;
+  text-decoration: underline;
+}

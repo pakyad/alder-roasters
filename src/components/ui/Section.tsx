@@ -4,7 +4,7 @@ import styles from "./Section.module.css";
 
 type SectionProps = {
   children: ReactNode;
-  tone?: "parchment" | "paper" | "oat" | "dark";
+  tone?: "parchment" | "paper" | "oat" | "dark" | "pandan" | "cherry-wash" | "pandan-wash";
   spacing?: "compact" | "default" | "generous";
 } & HTMLAttributes<HTMLElement>;
 

@@ -1,0 +1,40 @@
+.veil {
+  inset: auto 0 0;
+  mix-blend-mode: soft-light;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+.veil svg {
+  height: 100%;
+  width: 100%;
+}
+.wisp {
+  animation: steam-drift 11s var(--ease-in-out-soft) infinite alternate;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.wispSlow {
+  animation-duration: 17s;
+  animation-delay: -6s;
+}
+.wispLate {
+  animation-duration: 14s;
+  animation-delay: -11s;
+}
+@keyframes steam-drift {
+  from {
+    opacity: 0.55;
+    transform: translateX(-6%) scale(0.94, 1.02);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(7%) scale(1.08, 0.96);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .veil {
+    display: none;
+  }
+}

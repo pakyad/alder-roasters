@@ -1,0 +1,73 @@
+/* Sticky quick-add: appears once the configurator scrolls away, so the add
+   action is never more than one thumb away. Enters with @starting-style. */
+.bar {
+  align-items: center;
+  background: oklch(0.99 0.004 95 / 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-subtle);
+  bottom: var(--space-4);
+  box-shadow: 0 18px 40px rgba(23, 22, 20, 0.18);
+  display: grid;
+  gap: var(--space-2) var(--space-6);
+  grid-template-columns: 1fr auto;
+  inset-inline: var(--space-4) var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  position: fixed;
+  transition:
+    opacity var(--duration-swift) var(--ease-standard),
+    translate var(--duration-swift) var(--ease-out-soft);
+  z-index: 50;
+}
+@starting-style {
+  .bar {
+    opacity: 0;
+    translate: 0 130%;
+  }
+}
+.info {
+  min-width: 0;
+}
+.name {
+  font: 400 1.05rem/1.2 var(--font-serif);
+  margin: 0;
+}
+.config {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  margin: 0.15rem 0 0;
+}
+.price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  margin: 0;
+  white-space: nowrap;
+}
+.add {
+  background: var(--color-espresso);
+  border: 1px solid var(--color-espresso);
+  color: var(--color-text-inverted);
+  grid-column: 1 / -1;
+  min-height: 3rem;
+  transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+.add:hover {
+  background: var(--color-roast);
+  border-color: var(--color-roast);
+}
+.add:active {
+  transform: scale(0.985);
+}
+@media (min-width: 42rem) {
+  .bar {
+    grid-template-columns: 1fr auto auto;
+  }
+  .add {
+    grid-column: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
+}

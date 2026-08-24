@@ -1,0 +1,141 @@
+.explorer {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 60rem) {
+  .explorer {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  }
+}
+
+.controls {
+  display: grid;
+  gap: var(--space-6);
+  align-content: start;
+}
+.sliderBlock {
+  display: grid;
+  gap: var(--space-2);
+}
+.sliderBlock label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+.scaleEnds {
+  color: var(--color-text-secondary);
+  display: flex;
+  font-size: var(--font-size-xs);
+  justify-content: space-between;
+}
+.sliderBlock input[type="range"] {
+  accent-color: var(--color-flame-strong);
+  inline-size: 100%;
+}
+.summary {
+  background: var(--color-oat);
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+}
+
+.plot {
+  display: none;
+  gap: var(--space-2);
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+}
+@media (min-width: 60rem) {
+  .plot {
+    display: grid;
+  }
+}
+.axisLabelY {
+  writing-mode: sideways-lr;
+  align-self: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.plotArea {
+  border: 1px solid var(--color-border-subtle);
+  background:
+    linear-gradient(to right, transparent calc(50% - 1px), var(--color-border-subtle) 50%, transparent calc(50% + 0px)),
+    linear-gradient(to bottom, transparent calc(50% - 1px), var(--color-border-subtle) 50%, transparent calc(50% + 0px));
+  position: relative;
+}
+.dot {
+  border-radius: 999px;
+  height: 14px;
+  position: absolute;
+  transform: translate(-50%, 50%);
+  transition:
+    opacity var(--duration-fast) var(--ease-standard),
+    scale var(--duration-fast) var(--ease-standard),
+    transform var(--duration-swift) var(--ease-out-soft);
+  width: 14px;
+}
+.dot {
+  background: oklch(0.72 0.07 var(--dot-hue, 60));
+  opacity: 0.45;
+}
+.dotActive {
+  background: oklch(0.55 0.15 var(--dot-hue, 40));
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-paper), oklch(0.6 0.16 var(--dot-hue, 40)) 30%);
+  opacity: 1;
+  scale: 1.25;
+}
+.axisLabelX {
+  color: var(--color-text-secondary);
+  display: flex;
+  font-size: var(--font-size-xs);
+  grid-column: 2;
+  justify-content: space-between;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.matches {
+  display: grid;
+  gap: var(--space-4);
+  grid-column: 1 / -1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 48rem) {
+  .matches {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+}
+.matchCard {
+  border-top: 2px solid var(--color-ink);
+  color: inherit;
+  display: grid;
+  gap: 0.3rem;
+  padding-top: var(--space-3);
+  text-decoration: none;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+.matchCard:hover {
+  border-top-color: var(--color-cherry);
+}
+.matchCard:hover .matchName {
+  text-decoration: underline;
+  text-decoration-color: var(--color-cherry);
+}
+.matchName {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-h3);
+}
+.matchOrigin,
+.matchTaste {
+  font-size: var(--font-size-sm);
+}
+.matchOrigin {
+  color: var(--color-pandan);
+}
+.mapFooter {
+  grid-column: 1 / -1;
+  margin: 0;
+}

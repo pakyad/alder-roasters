@@ -1,0 +1,53 @@
+.stage {
+  display: grid;
+  gap: var(--space-4);
+}
+.scene {
+  cursor: grab;
+  perspective: 1200px;
+  touch-action: pan-y;
+}
+.scene:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+.scene:active {
+  cursor: grabbing;
+}
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.settling {
+  transition: transform 540ms var(--ease-spring);
+}
+.face,
+.faceBack {
+  backface-visibility: hidden;
+}
+.faceBack {
+  inset: 0;
+  position: absolute;
+  transform: rotateY(180deg);
+}
+.controls {
+  align-items: center;
+  display: flex;
+  gap: var(--space-3);
+}
+.controls button {
+  background: none;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  padding: 0.5rem 0.9rem;
+}
+.controls button:hover {
+  border-color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition-duration: 0.01ms;
+  }
+}

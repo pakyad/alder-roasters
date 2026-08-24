@@ -25,13 +25,30 @@ export function CatalogueFilters({
   sort: CoffeeSort;
   resultCount: number;
 }) {
-  const active = [filters.flavour, filters.brewMethod, filters.availability].filter(
-    Boolean,
-  ) as string[];
+  const chips = (
+    [
+      { key: "flavour", value: filters.flavour },
+      { key: "brew", value: filters.brewMethod },
+      { key: "availability", value: filters.availability },
+    ] as const
+  ).filter((chip) => typeof chip.value === "string") as readonly {
+    key: string;
+    value: string;
+  }[];
+
+  const hrefWithout = (removedKey: string) => {
+    const params = new URLSearchParams();
+    params.set("sort", sort);
+    for (const chip of chips) {
+      if (chip.key !== removedKey) params.set(chip.key, chip.value);
+    }
+    return `/shop?${params.toString()}`;
+  };
+
   return (
     <aside className={styles.filters} aria-label="Filter coffees">
       <details className={styles.filterDisclosure} open>
-        <summary>Filter coffees{active.length ? ` (${active.length})` : ""}</summary>
+        <summary>Filter coffees{chips.length ? ` (${chips.length})` : ""}</summary>
         <form className={styles.filterForm} action="/shop" method="get">
           <label>
             Flavour character
@@ -67,10 +84,25 @@ export function CatalogueFilters({
           </button>
         </form>
       </details>
-      {active.length > 0 && (
+      {chips.length > 0 && (
         <div className={styles.activeFilters} aria-label="Active filters">
-          <span>Showing: {active.map((value) => labels[value]).join(", ")}</span>
-          <Link href={`/shop?sort=${sort}`}>Clear filters</Link>
+          <span>Showing:</span>
+          {chips.map((chip) => (
+            <Link
+              className={styles.filterChip}
+              href={hrefWithout(chip.key)}
+              key={chip.key}
+              aria-label={`Remove ${labels[chip.value]} filter`}
+            >
+              {labels[chip.value]}
+              <span aria-hidden="true" className={styles.chipRemove}>
+                ×
+              </span>
+            </Link>
+          ))}
+          <Link className={styles.clearAll} href={`/shop?sort=${sort}`}>
+            Clear all
+          </Link>
         </div>
       )}
     </aside>

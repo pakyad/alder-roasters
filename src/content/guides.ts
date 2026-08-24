@@ -8,6 +8,7 @@ export const brewGuides = [
     brewMethod: "filter",
     difficulty: "Moderate",
     timeMinutes: 4,
+    totalSeconds: 180,
     ratio: { coffeeGrams: 15, waterGrams: 250 },
     equipment: ["V60 brewer", "paper filter", "kettle", "scale", "timer"],
     introduction: "A calm starting recipe for coffees with bright fruit and floral detail.",
@@ -53,6 +54,7 @@ export const brewGuides = [
     brewMethod: "immersion",
     difficulty: "Easy",
     timeMinutes: 3,
+    totalSeconds: 150,
     ratio: { coffeeGrams: 16, waterGrams: 240 },
     equipment: ["AeroPress", "filter", "kettle", "scale", "timer"],
     introduction: "A forgiving, full-flavoured recipe for mornings when repeatability matters.",
@@ -95,6 +97,7 @@ export const brewGuides = [
     brewMethod: "espresso",
     difficulty: "Moderate",
     timeMinutes: 5,
+    totalSeconds: 32,
     ratio: { coffeeGrams: 18, waterGrams: 36 },
     equipment: ["espresso machine", "grinder", "scale", "timer"],
     introduction:

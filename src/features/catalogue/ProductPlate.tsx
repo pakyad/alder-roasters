@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { Morph } from "@/components/motion/Morph";
+import { reveal } from "@/components/motion/reveal";
 import type { Coffee } from "../../domain/coffee";
 import { formatMoney } from "../../lib/money";
 import { ProductBag } from "./ProductBag";
@@ -7,13 +9,19 @@ import styles from "./catalogue.module.css";
 
 export function ProductPlate({ coffee, priority = false }: { coffee: Coffee; priority?: boolean }) {
   return (
-    <article className={styles.plate}>
+    <article
+      className={styles.plate}
+      {...reveal(priority ? 0 : 1, { "--bag-hue": coffee.packageHue } as React.CSSProperties)}
+    >
       <Link
         className={styles.plateImageLink}
         href={`/shop/${coffee.slug}`}
+        transitionTypes={["nav-forward"]}
         aria-label={`View ${coffee.name}`}
       >
-        <ProductBag coffee={coffee} priority={priority} />
+        <Morph name={`bag-${coffee.id}`}>
+          <ProductBag coffee={coffee} priority={priority} />
+        </Morph>
       </Link>
       <div className={styles.plateCopy}>
         <div>
@@ -21,7 +29,9 @@ export function ProductPlate({ coffee, priority = false }: { coffee: Coffee; pri
             {coffee.origin.country} · {coffee.origin.region}
           </p>
           <h2 className={styles.plateTitle}>
-            <Link href={`/shop/${coffee.slug}`}>{coffee.name}</Link>
+            <Link href={`/shop/${coffee.slug}`} transitionTypes={["nav-forward"]}>
+              {coffee.name}
+            </Link>
           </h2>
         </div>
         <p className={styles.taste}>{coffee.taste.summary}</p>

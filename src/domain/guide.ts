@@ -13,6 +13,8 @@ export interface BrewGuide {
   readonly brewMethod: BrewMethod;
   readonly difficulty: "Easy" | "Moderate";
   readonly timeMinutes: number;
+  /** Total length of the timed brew, powering the guided timer. */
+  readonly totalSeconds: number;
   readonly ratio: { readonly coffeeGrams: number; readonly waterGrams: number };
   readonly equipment: readonly string[];
   readonly introduction: string;

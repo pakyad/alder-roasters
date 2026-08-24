@@ -1,9 +1,31 @@
 .header {
-  background: rgba(240, 237, 230, 0.97);
+  background: rgba(231, 236, 222, 0.92);
   border-bottom: 1px solid var(--color-border-subtle);
   position: sticky;
   top: 0;
+  transition:
+    background-color var(--duration-swift) var(--ease-standard),
+    box-shadow var(--duration-swift) var(--ease-standard);
   z-index: 40;
+}
+.header::after {
+  background: rgba(0, 0, 0, 0.06);
+  bottom: -1px;
+  content: "";
+  height: 1px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  transition: opacity var(--duration-swift) var(--ease-standard);
+}
+.scrolled {
+  background: rgba(231, 236, 222, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.scrolled::after {
+  opacity: 1;
 }
 .inner {
   align-items: center;
@@ -11,6 +33,10 @@
   gap: var(--space-6);
   grid-template-columns: auto 1fr auto;
   min-height: 5rem;
+  transition: min-height var(--duration-swift) var(--ease-standard);
+}
+.scrolled .inner {
+  min-height: 4rem;
 }
 .navigation,
 .utilities {
@@ -28,21 +54,22 @@
 .utilities a {
   color: var(--color-ink);
   font-size: var(--font-size-sm);
+  position: relative;
   text-decoration: none;
   text-underline-offset: 0.3em;
-  position: relative;
+  transition: color var(--duration-swift) var(--ease-standard);
 }
 .navigation a::after,
 .utilities a::after {
-  background: var(--color-ink);
+  background: var(--color-cherry);
   bottom: -0.38rem;
   content: "";
-  height: 1px;
+  height: 2px;
   left: 0;
   position: absolute;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform var(--duration-fast) var(--ease-standard);
+  transition: transform var(--duration-swift) var(--ease-spring);
   width: 100%;
 }
 .navigation a:hover::after,
@@ -51,6 +78,47 @@
 .utilities a[aria-current="page"]::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+.cartCount {
+  color: var(--color-cherry-strong);
+  display: inline-block;
+  font-weight: 650;
+}
+@keyframes cart-pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.45);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cartCount {
+    animation: cart-pop 0.45s var(--ease-spring);
+  }
+}
+/* Dark-chapter mode: the header joins the section it floats above. */
+.onDark {
+  background: oklch(0.21 0.042 162 / 0.88);
+  border-bottom-color: oklch(0.96 0.01 95 / 0.14);
+  color: var(--color-text-inverted);
+}
+.onDark::after {
+  opacity: 0;
+}
+.onDark .navigation a,
+.onDark .utilities a {
+  color: var(--color-text-inverted);
+}
+.onDark .navigation a::after,
+.onDark .utilities a::after {
+  background: var(--color-cherry-bright);
+}
+.onDark .cartCount {
+  color: var(--color-cherry-bright);
 }
 .menuButton {
   background: transparent;
@@ -61,6 +129,9 @@
   min-width: 2.75rem;
   transition: color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
 }
+.onDark .menuButton {
+  color: var(--color-text-inverted);
+}
 .menuButton:active {
   transform: scale(0.96);
 }
@@ -70,6 +141,9 @@
     grid-template-columns: auto 1fr auto;
     gap: var(--space-2);
     min-height: 4.5rem;
+  }
+  .scrolled .inner {
+    min-height: 4rem;
   }
   .menuButton {
     display: inline-flex;
@@ -101,6 +175,10 @@
       visibility var(--duration-fast);
     visibility: hidden;
   }
+  .onDark .navigation {
+    background: var(--color-pandan-ink);
+    border-bottom-color: oklch(0.96 0.01 95 / 0.14);
+  }
   .navigation.open {
     opacity: 1;
     pointer-events: auto;
@@ -112,6 +190,9 @@
     border-bottom: 1px solid var(--color-border-subtle);
     display: flex;
     min-height: 3.25rem;
+  }
+  .onDark .navigation a {
+    border-bottom-color: oklch(0.96 0.01 95 / 0.12);
   }
 }
 
