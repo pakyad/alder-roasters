@@ -39,7 +39,7 @@
   --color-error-surface: oklch(0.95 0.03 25);
   --color-info: oklch(0.46 0.07 225);
   --color-info-surface: oklch(0.94 0.025 220);
-  --font-sans: var(--font-instrument-sans), "Arial", sans-serif;
+  --font-sans: var(--font-hanken), "Helvetica Neue", Arial, sans-serif;
   --font-serif: var(--font-newsreader), "Georgia", serif;
   --font-size-xs: 0.8125rem;
   --font-size-sm: clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
@@ -59,8 +59,8 @@
   --space-12: 4rem;
   --space-16: 6rem;
   --space-20: 8rem;
-  --section-space: clamp(6rem, 10vw, 10rem);
-  --section-space-large: clamp(7rem, 12vw, 12rem);
+  --section-space: clamp(7rem, 12vw, 12rem);
+  --section-space-large: clamp(8rem, 13vw, 13rem);
   --shell-gutter: clamp(1.25rem, 3.5vw, 3.5rem);
   --width-shell: 90rem;
   --width-content: 72rem;
@@ -140,7 +140,7 @@ h2,
 h3 {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin-block: 0 0.5em;
   text-wrap: balance;
 }
@@ -164,6 +164,10 @@ a {
   text-decoration-color: var(--color-brass);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+a:hover {
+  color: var(--color-pandan-deep);
 }
 button,
 input,
@@ -208,10 +212,20 @@ svg {
   transform: translateY(0);
 }
 .eyebrow {
+  align-items: center;
+  display: flex;
   font-size: var(--font-size-xs);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 650;
+  gap: 0.6rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+.eyebrow::before {
+  background: currentColor;
+  content: "";
+  height: 2px;
+  opacity: 0.55;
+  width: 1.5rem;
 }
 /* Token override for content sitting on deep green: hairlines, secondary
    text and links re-tune to the dark world without touching components. */
@@ -267,7 +281,7 @@ svg {
 @keyframes reveal-rise {
   from {
     opacity: 0;
-    transform: translateY(1.75rem);
+    transform: translateY(1rem);
   }
   to {
     opacity: 1;

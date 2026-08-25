@@ -44,14 +44,19 @@
   white-space: nowrap;
 }
 .add {
-  background: var(--color-espresso);
-  border: 1px solid var(--color-espresso);
+  background: var(--color-pandan-deep);
+  border: 1px solid var(--color-pandan-deep);
+  border-radius: 999px;
   color: var(--color-text-inverted);
   grid-column: 1 / -1;
   min-height: 3rem;
   transition:
-    background-color var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard);
+    background-color var(--duration-swift) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-spring);
+}
+.add:hover {
+  background: var(--color-pandan-ink);
+  border-color: var(--color-pandan-ink);
 }
 .add:hover {
   background: var(--color-roast);

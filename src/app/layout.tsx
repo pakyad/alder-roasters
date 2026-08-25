@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Newsreader } from "next/font/google";
+import { Hanken_Grotesk, Newsreader } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { Announcement, Footer, Header } from "@/components/layout";
@@ -8,9 +8,9 @@ import { CartDrawer, CartFlight, CartProvider } from "@/features/cart";
 
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-instrument-sans",
+  variable: "--font-hanken",
   display: "swap",
 });
 
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html
       lang="en"
-      className={`${instrumentSans.variable} ${newsreader.variable}`}
+      className={`${hankenGrotesk.variable} ${newsreader.variable}`}
       data-scroll-behavior="smooth"
     >
       <body>

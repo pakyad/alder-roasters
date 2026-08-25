@@ -1,36 +1,38 @@
 .button {
   align-items: center;
   border: 1px solid transparent;
+  border-radius: 999px;
   display: inline-flex;
   font: 600 var(--font-size-sm) / 1 var(--font-sans);
   justify-content: center;
-  min-height: 2.75rem;
-  padding: 0.75rem 1.25rem;
+  letter-spacing: 0.01em;
+  min-height: 3rem;
+  padding: 0.8rem 1.6rem;
   text-decoration: none;
   transition:
-    background-color var(--duration-fast) var(--ease-standard),
-    border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard),
-    color var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard);
+    background-color var(--duration-swift) var(--ease-standard),
+    border-color var(--duration-swift) var(--ease-standard),
+    box-shadow var(--duration-swift) var(--ease-standard),
+    color var(--duration-swift) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-spring);
 }
 
 .button:hover {
   transform: translateY(-1px);
 }
 .button:active {
-  transform: translateY(0) scale(0.985);
+  transform: translateY(0) scale(0.97);
 }
 
 .primary {
-  background: var(--color-ink);
-  border-color: var(--color-ink);
+  background: var(--color-pandan-deep);
+  border-color: var(--color-pandan-deep);
   color: var(--color-text-inverted);
 }
 .primary:hover {
-  background: var(--color-roast);
-  border-color: var(--color-roast);
-  box-shadow: 0 5px 14px rgba(23, 22, 20, 0.14);
+  background: var(--color-pandan-ink);
+  border-color: var(--color-pandan-ink);
+  box-shadow: 0 10px 24px oklch(0.27 0.052 158 / 0.28);
 }
 .secondary {
   background: transparent;
@@ -46,10 +48,11 @@
   min-height: 2.75rem;
   padding-inline: 0;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.25em;
 }
 .text:hover {
-  color: var(--color-roast);
+  color: var(--color-pandan-deep);
 }
 .light {
   background: #ffffff;
@@ -60,6 +63,12 @@
   background: var(--color-flame-bright);
   border-color: var(--color-flame-bright);
   color: var(--color-pandan-ink);
+}
+
+@media (max-width: 30rem) {
+  .button {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

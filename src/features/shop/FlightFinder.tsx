@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import { Button } from "@/components/ui";
@@ -7,14 +8,15 @@ import type { BrewMethod, Coffee, FlavourCharacter } from "@/domain/coffee";
 import { flavourCharacters } from "@/domain/coffee";
 import { matchFlight, moodOptions, type MoodOption } from "@/domain/flight";
 import { formatMoney } from "@/lib/money";
+import { ProductBag } from "../catalogue/ProductBag";
 import styles from "./flight-finder.module.css";
 
 /**
  * Tasting-flight finder.
  *
- * Three calm questions, a deterministic recommendation, and full reasoning on
- * screen. Adding the flight drops three configured bags straight into the cart
- * — no funnel, no email gate.
+ * Three calm questions, one composed trio. Each pick is a real bag with a
+ * role — opener, pivot, closer — and adding the flight drops the three
+ * configured bags straight into the cart. No funnel, no email gate.
  */
 export function FlightFinder({ coffees }: { coffees: readonly Coffee[] }) {
   const [mood, setMood] = useState<MoodOption>("balanced");
@@ -56,7 +58,7 @@ export function FlightFinder({ coffees }: { coffees: readonly Coffee[] }) {
     <div className={styles.finder}>
       <div className={styles.controls}>
         <label>
-          <span>How do you want the cup to feel?</span>
+          <span>How should the cup feel?</span>
           <select onChange={(event) => setMood(event.target.value as MoodOption)} value={mood}>
             {moodOptions.map((option) => (
               <option key={option} value={option}>
@@ -66,7 +68,7 @@ export function FlightFinder({ coffees }: { coffees: readonly Coffee[] }) {
           </select>
         </label>
         <label>
-          <span>Any flavour pull? Optional.</span>
+          <span>Any flavour in mind?</span>
           <select
             onChange={(event) => setCharacter(event.target.value as FlavourCharacter | "")}
             value={character}
@@ -80,7 +82,7 @@ export function FlightFinder({ coffees }: { coffees: readonly Coffee[] }) {
           </select>
         </label>
         <label>
-          <span>Your brewer? Optional.</span>
+          <span>What&rsquo;s your brewer?</span>
           <select
             onChange={(event) => setMethod(event.target.value as BrewMethod | "")}
             value={method}
@@ -93,17 +95,39 @@ export function FlightFinder({ coffees }: { coffees: readonly Coffee[] }) {
         </label>
       </div>
 
-      <ol className={styles.picks} role="list" key={`${mood}|${character}|${method}`}>
+      <div className={styles.picksHead}>
+        <p className="eyebrow">Your three bags</p>
+        <p className={styles.picksNote}>Chosen to open, pivot and close — tasted as one set.</p>
+      </div>
+      <ol className={styles.picks} key={`${mood}|${character}|${method}`}>
         {picks.map((pick, index) => (
           <li
             key={pick.coffee.id}
             className={styles.pick}
-            style={{ "--pick-index": index } as React.CSSProperties}
+            style={
+              { "--pick-index": index, "--row-hue": pick.coffee.packageHue } as React.CSSProperties
+            }
           >
-            <p className={styles.reason}>{pick.reason}</p>
-            <p className={styles.pickMeta}>
-              {pick.coffee.name} · {pick.coffee.taste.summary}
-            </p>
+            <Link
+              className={styles.pickCard}
+              href={`/shop/${pick.coffee.slug}`}
+              transitionTypes={["nav-forward"]}
+            >
+              <span aria-hidden="true" className={styles.pickBag}>
+                <ProductBag bare coffee={pick.coffee} />
+              </span>
+              <span className={styles.pickBody}>
+                <span className={styles.pickRole}>{pick.reason}</span>
+                <span className={styles.pickName}>{pick.coffee.name}</span>
+                <span className={styles.pickTaste}>{pick.coffee.taste.summary}</span>
+                <span className={styles.pickMeta}>
+                  {formatMoney(pick.coffee.sizes[0].price)} · 250g
+                  <span aria-hidden="true" className={styles.pickArrow}>
+                    →
+                  </span>
+                </span>
+              </span>
+            </Link>
           </li>
         ))}
       </ol>

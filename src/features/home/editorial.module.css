@@ -30,12 +30,22 @@
   max-width: 36rem;
 }
 .kicker {
-  color: var(--color-text-secondary);
+  align-items: center;
+  color: var(--color-pandan);
+  display: flex;
   font-size: 0.72rem;
   font-weight: 650;
-  letter-spacing: 0.09em;
+  gap: 0.6rem;
+  letter-spacing: 0.14em;
   margin-bottom: var(--space-6);
   text-transform: uppercase;
+}
+.kicker::before {
+  background: currentColor;
+  content: "";
+  height: 2px;
+  opacity: 0.6;
+  width: 1.5rem;
 }
 .heroMedia {
   margin: 0;
@@ -67,6 +77,22 @@
 .heroMedia img {
   outline: 1px solid rgba(0, 0, 0, 0.08);
   outline-offset: -1px;
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .heroMedia img {
+      animation: hero-drift linear both;
+      animation-timeline: view();
+    }
+  }
+}
+@keyframes hero-drift {
+  from {
+    transform: scale(1.05) translateY(2%);
+  }
+  to {
+    transform: scale(1) translateY(-1.5%);
+  }
 }
 .heroActions {
   display: flex;
@@ -202,9 +228,6 @@
 }
 .noteCopy a {
   color: var(--color-ink);
-}
-.guideFeature {
-  padding-block: clamp(4rem, 8vw, 7rem);
 }
 .split {
   align-items: stretch;
@@ -438,10 +461,6 @@
   color: var(--color-text-secondary);
   margin: 0;
   max-width: 42ch;
-}
-.equipment {
-  columns: 2;
-  padding-left: 1.2rem;
 }
 .trouble {
   display: grid;

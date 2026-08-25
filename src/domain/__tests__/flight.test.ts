@@ -44,9 +44,11 @@ describe("matchFlight", () => {
     expect(first).toEqual(second);
   });
 
-  it("returns reasons that name the coffee", () => {
-    const [first] = matchFlight(base, coffees);
-    expect(first.reason).toMatch(new RegExp(`^${first.coffee.name}:`));
+  it("assigns each pick a distinct role with varied copy", () => {
+    const picks = matchFlight(base, coffees);
+    const roles = picks.map((pick) => pick.role);
+    expect(roles).toEqual(["opens", "pivots", "closes"]);
+    expect(new Set(picks.map((pick) => pick.reason)).size).toBe(3);
   });
 
   it("handles an empty catalogue", () => {

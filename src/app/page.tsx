@@ -40,8 +40,8 @@ export default function HomePage() {
               className={`lead entrance`}
               style={{ "--entrance-delay": "180ms" } as React.CSSProperties}
             >
-              Seven coffees, roasted in small batches. Each one comes with a plain tasting note and
-              a tested place to start brewing.
+              Seven coffees, roasted in small batches. Each one comes with a tasting note and a
+              tested place to start brewing.
             </p>
             <div
               className={styles.heroActions}
@@ -121,10 +121,22 @@ export default function HomePage() {
             </div>
           </div>
           <p className={`${styles.sectionIntro} lead`} {...reveal(1)}>
-            Two simple dials — bright to comforting, delicate to full. No jargon, no quiz; just the
-            range arranged around your preference.
+            Two simple dials, bright to comforting and delicate to full. No jargon, no quiz: the
+            range arranges itself around your preference.
           </p>
           <TasteMapExplorer coffees={coffees} />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <div className={styles.sectionHeader} {...reveal(0)}>
+            <div>
+              <p className={styles.kicker}>Not sure where to start?</p>
+              <h2>Build a tasting flight.</h2>
+            </div>
+          </div>
+          <FlightFinder coffees={coffees} />
         </Container>
       </Section>
 
@@ -157,7 +169,7 @@ export default function HomePage() {
               <p className={styles.kicker}>Subscriptions</p>
               <h2>Coffee that keeps up with you.</h2>
               <p>
-                Your first box shows exactly what ships, when it roasts and what recurs — before you
+                Your first box shows exactly what ships, when it roasts and what recurs, before you
                 commit to anything. Plans run every two or four weeks, and pausing takes one click
                 before each dispatch.
               </p>
@@ -178,18 +190,6 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <div className={styles.sectionHeader} {...reveal(0)}>
-            <div>
-              <p className={styles.kicker}>Not sure where to start?</p>
-              <h2>Build a tasting flight.</h2>
-            </div>
-          </div>
-          <FlightFinder coffees={coffees} />
         </Container>
       </Section>
 

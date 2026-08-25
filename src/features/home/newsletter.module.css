@@ -33,13 +33,14 @@
 .row button {
   background: var(--color-flame-strong);
   border: none;
+  border-radius: 999px;
   color: #fff;
   font-weight: 600;
   min-height: 44px;
-  padding: 0.5rem 1.1rem;
+  padding: 0.5rem 1.4rem;
   transition:
     filter var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard);
+    transform var(--duration-fast) var(--ease-spring);
 }
 .row button:hover {
   filter: brightness(1.08);

@@ -151,7 +151,10 @@ export default async function GuidePage({ params }: Props) {
       </Section>
       <Section tone="paper">
         <Container>
-          <h2 {...reveal(0)}>If the cup is not quite right</h2>
+          <p className="eyebrow" {...reveal(0)}>
+            When it drifts
+          </p>
+          <h2 {...reveal(1)}>If the cup is not quite right</h2>
           <div className={styles.trouble}>
             {guide.troubleshooting.map((item, index) => (
               <div className={styles.troubleCard} key={item.problem} {...reveal(index + 1)}>
@@ -162,7 +165,10 @@ export default async function GuidePage({ params }: Props) {
           </div>
           {recommended.length > 0 && (
             <>
-              <h2 {...reveal(0, { marginTop: "var(--space-16)" })}>Coffees for this method</h2>
+              <p className="eyebrow" {...reveal(0, { marginTop: "var(--space-16)" })}>
+                Take it home
+              </p>
+              <h2 {...reveal(1)}>Coffees for this method</h2>
               <div className={styles.recoGrid}>
                 {recommended.map((coffee, index) => (
                   <Link

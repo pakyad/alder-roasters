@@ -47,10 +47,10 @@ export default function StoryPage() {
               <h2>Three coffees and a weekly public tasting</h2>
               <p>
                 ALDER started in the back half of a former joinery workshop. Its founders had worked
-                on opposite sides of coffee—one in roasting and green buying, the other in
-                hospitality and editorial design—but shared the same frustration. Excellent coffees
-                were arriving in Malaysia while the language around them made a simple pleasure feel
-                like a test.
+                on opposite sides of coffee: one in roasting and green buying, the other in
+                hospitality and editorial design. They shared the same frustration. Excellent
+                coffees were arriving in Malaysia while the language around them made a simple
+                pleasure feel like a test.
               </p>
               <p>
                 The early tastings had one rule: taste first, explain second. Nobody needed to

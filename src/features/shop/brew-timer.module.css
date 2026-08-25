@@ -159,13 +159,14 @@
 .controls button {
   background: var(--color-flame-strong);
   border: none;
+  border-radius: 999px;
   color: #fff;
   font-weight: 600;
   min-height: 44px;
-  padding: 0.6rem 1.4rem;
+  padding: 0.6rem 1.5rem;
   transition:
     filter var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard);
+    transform var(--duration-fast) var(--ease-spring);
 }
 .controls button:hover {
   filter: brightness(1.08);
