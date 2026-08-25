@@ -86,8 +86,9 @@
   padding-bottom: var(--space-4);
 }
 .lineName {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--font-size-lg);
+  font-weight: 600;
   margin: 0;
 }
 .lineDetail {

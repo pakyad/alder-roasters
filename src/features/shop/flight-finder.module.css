@@ -100,7 +100,7 @@
   letter-spacing: 0.04em;
 }
 .pickName {
-  font: 400 var(--font-size-h3)/1.1 var(--font-serif);
+  font: 600 var(--font-size-h3)/1.15 var(--font-sans);
 }
 .pickCard:hover .pickName {
   color: var(--color-pandan-deep);

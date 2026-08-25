@@ -1,18 +1,22 @@
 .explorer {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-6);
   grid-template-columns: 1fr;
 }
 @media (min-width: 60rem) {
   .explorer {
-    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    grid-template-columns: minmax(13rem, 15rem) minmax(0, 1fr);
+    align-items: start;
   }
 }
 
 .controls {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-subtle);
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-5);
   align-content: start;
+  padding: var(--space-5);
 }
 .sliderBlock {
   display: grid;
@@ -29,14 +33,14 @@
   justify-content: space-between;
 }
 .sliderBlock input[type="range"] {
-  accent-color: var(--color-flame-strong);
+  accent-color: var(--color-pandan);
   inline-size: 100%;
 }
 .summary {
-  background: var(--color-paper);
-  border: 1px solid var(--color-pandan);
+  border-left: 2px solid var(--color-pandan);
+  font-size: var(--font-size-sm);
   margin: 0;
-  padding: var(--space-3) var(--space-4);
+  padding-left: var(--space-3);
 }
 
 .plot {
@@ -47,17 +51,23 @@
     display: block;
   }
 }
+.plotCaption {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--space-2);
+}
 .plotArea {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 5 / 4;
   background:
-    radial-gradient(oklch(0.96 0.01 95 / 0.09) 1px, transparent 1px),
-    linear-gradient(165deg, var(--color-pandan-deep) 0%, var(--color-pandan-ink) 100%);
+    radial-gradient(oklch(0.96 0.01 95 / 0.1) 1px, transparent 1px),
+    linear-gradient(165deg, oklch(0.45 0.075 150) 0%, oklch(0.38 0.065 152) 100%);
   background-position: center;
   background-size:
-    26px 26px,
+    24px 24px,
     cover;
-  border-radius: 18px;
-  box-shadow: inset 0 0 0 1px oklch(0.96 0.01 95 / 0.08);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px oklch(0.96 0.01 95 / 0.1);
   overflow: hidden;
   position: relative;
 }
@@ -67,21 +77,21 @@
   position: absolute;
 }
 .plotArea::before {
-  background: oklch(0.96 0.01 95 / 0.16);
+  background: oklch(0.96 0.01 95 / 0.22);
   height: 1px;
   left: 8%;
   right: 8%;
   top: 50%;
 }
 .plotArea::after {
-  background: oklch(0.96 0.01 95 / 0.16);
+  background: oklch(0.96 0.01 95 / 0.22);
   bottom: 8%;
   left: 50%;
   top: 8%;
   width: 1px;
 }
 .edgeLabel {
-  color: oklch(0.96 0.01 95 / 0.62);
+  color: oklch(0.96 0.01 95 / 0.72);
   font-size: var(--font-size-xs);
   letter-spacing: 0.14em;
   position: absolute;
@@ -90,27 +100,27 @@
 }
 .edgeTop {
   left: 50%;
-  top: 1rem;
+  top: 0.8rem;
   transform: translateX(-50%);
 }
 .edgeBottom {
-  bottom: 1rem;
+  bottom: 0.8rem;
   left: 50%;
   transform: translateX(-50%);
 }
 .edgeLeft {
-  left: 1rem;
+  left: 0.8rem;
   top: 50%;
   transform: translateY(-50%);
 }
 .edgeRight {
-  right: 1rem;
+  right: 0.8rem;
   top: 50%;
   transform: translateY(-50%);
 }
 .dot {
   border-radius: 999px;
-  height: 14px;
+  height: 13px;
   position: absolute;
   transform: translate(-50%, 50%);
   transition:
@@ -118,23 +128,33 @@
     box-shadow var(--duration-fast) var(--ease-standard),
     scale var(--duration-fast) var(--ease-standard),
     transform var(--duration-swift) var(--ease-out-soft);
-  width: 14px;
+  width: 13px;
 }
 .dot {
-  background: oklch(0.78 0.08 var(--dot-hue, 60));
-  box-shadow: 0 2px 10px oklch(0.96 0.01 95 / 0.18);
-  opacity: 0.55;
+  background: oklch(0.82 0.075 var(--dot-hue, 60));
+  box-shadow: 0 2px 8px oklch(0.21 0.042 162 / 0.35);
+  opacity: 0.6;
 }
 .dot:hover {
   opacity: 0.9;
 }
 .dotActive {
-  background: oklch(0.88 0.07 var(--dot-hue, 40));
+  background: oklch(0.92 0.06 var(--dot-hue, 40));
   box-shadow:
-    0 0 0 3px oklch(0.96 0.01 95 / 0.22),
-    0 3px 12px oklch(0.96 0.01 95 / 0.28);
+    0 0 0 3px oklch(0.96 0.01 95 / 0.25),
+    0 3px 12px oklch(0.21 0.042 162 / 0.4);
   opacity: 1;
   scale: 1.3;
+}
+.dotName {
+  color: oklch(0.96 0.01 95 / 0.85);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  position: absolute;
+  text-shadow: 0 1px 4px oklch(0.21 0.042 162 / 0.5);
+  white-space: nowrap;
+  z-index: 1;
 }
 
 .matches {
@@ -142,12 +162,12 @@
   gap: var(--space-4);
   grid-column: 1 / -1;
   list-style: none;
-  margin: 0;
+  margin: var(--space-2) 0 0;
   padding: 0;
 }
 @media (min-width: 48rem) {
   .matches {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 .matchCard {
@@ -167,15 +187,27 @@
   text-decoration-color: var(--color-cherry);
 }
 .matchName {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--font-size-h3);
+  font-weight: 600;
 }
 .matchOrigin,
 .matchTaste {
   font-size: var(--font-size-sm);
 }
 .matchOrigin {
+  align-items: center;
   color: var(--color-pandan);
+  display: flex;
+  font-size: var(--font-size-sm);
+  gap: 0.4rem;
+}
+.matchChip {
+  background: oklch(0.6 0.11 var(--dot-hue, 60));
+  border-radius: 999px;
+  display: inline-block;
+  height: 0.55rem;
+  width: 0.55rem;
 }
 .mapFooter {
   grid-column: 1 / -1;

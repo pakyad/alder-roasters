@@ -59,8 +59,8 @@
   --space-12: 4rem;
   --space-16: 6rem;
   --space-20: 8rem;
-  --section-space: clamp(7rem, 12vw, 12rem);
-  --section-space-large: clamp(8rem, 13vw, 13rem);
+  --section-space: clamp(5.5rem, 9vw, 9.5rem);
+  --section-space-large: clamp(6.5rem, 10vw, 10.5rem);
   --shell-gutter: clamp(1.25rem, 3.5vw, 3.5rem);
   --width-shell: 90rem;
   --width-content: 72rem;
@@ -125,7 +125,7 @@ html {
 body {
   background: var(--color-paper);
   color: var(--color-text);
-  font: 400 var(--font-size-body)/1.65 var(--font-sans);
+  font: 400 var(--font-size-body)/1.6 var(--font-sans);
   margin: 0;
   min-width: 20rem;
   text-rendering: optimizeLegibility;
@@ -136,11 +136,17 @@ main:focus {
   outline: none;
 }
 h1,
-h2,
-h3 {
+h2 {
   font-family: var(--font-serif);
   font-weight: 400;
   letter-spacing: -0.02em;
+  margin-block: 0 0.5em;
+  text-wrap: balance;
+}
+h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
   margin-block: 0 0.5em;
   text-wrap: balance;
 }

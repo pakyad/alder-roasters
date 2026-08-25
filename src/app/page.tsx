@@ -205,7 +205,7 @@ export default function HomePage() {
               {...reveal(0)}
             />
             <div className={styles.guideCopy} {...reveal(1)}>
-              <p className={styles.kicker}>Brew note / 01</p>
+              <p className={styles.kicker}>Brew note</p>
               <h2>A clear, sweet V60</h2>
               <dl className={styles.recipe}>
                 <div>

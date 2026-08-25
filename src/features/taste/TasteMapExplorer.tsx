@@ -142,6 +142,9 @@ export function TasteMapExplorer({ coffees }: { coffees: readonly Coffee[] }) {
       </div>
 
       <div aria-hidden="true" className={styles.plot}>
+        <p className={styles.plotCaption}>
+          Every dot is a coffee on the shelf. Move the dials — the map and the list below follow.
+        </p>
         <div className={styles.plotArea} ref={plotRef}>
           <span className={`${styles.edgeLabel} ${styles.edgeTop}`}>Delicate</span>
           <span className={`${styles.edgeLabel} ${styles.edgeBottom}`}>Full</span>
@@ -149,21 +152,39 @@ export function TasteMapExplorer({ coffees }: { coffees: readonly Coffee[] }) {
           <span className={`${styles.edgeLabel} ${styles.edgeRight}`}>Comforting</span>
           {live.map((coffee) => {
             const isMatch = matches.some((match) => match.id === coffee.id);
+            const x = coffee.taste.coordinates.brightComforting * 10;
+            const y = 100 - coffee.taste.coordinates.delicateFull * 10;
+            const flip = x > 58;
             return (
-              <Link
-                aria-hidden="true"
-                className={`${styles.dot} ${isMatch ? styles.dotActive : ""}`}
-                href={`/shop/${coffee.slug}`}
-                key={coffee.id}
-                tabIndex={-1}
-                style={
-                  {
-                    left: `${coffee.taste.coordinates.brightComforting * 10}%`,
-                    top: `${100 - coffee.taste.coordinates.delicateFull * 10}%`,
-                    "--dot-hue": coffee.packageHue,
-                  } as React.CSSProperties
-                }
-              />
+              <span key={coffee.id}>
+                <Link
+                  aria-hidden="true"
+                  className={`${styles.dot} ${isMatch ? styles.dotActive : ""}`}
+                  href={`/shop/${coffee.slug}`}
+                  tabIndex={-1}
+                  style={
+                    {
+                      left: `${x}%`,
+                      top: `${y}%`,
+                      "--dot-hue": coffee.packageHue,
+                    } as React.CSSProperties
+                  }
+                />
+                <span
+                  className={styles.dotName}
+                  style={
+                    flip
+                      ? {
+                          left: `${x}%`,
+                          top: `${y}%`,
+                          transform: "translate(calc(-100% - 10px), -50%)",
+                        }
+                      : { left: `${x}%`, top: `${y}%`, transform: "translate(10px, -50%)" }
+                  }
+                >
+                  {coffee.name}
+                </span>
+              </span>
             );
           })}
         </div>
@@ -175,6 +196,11 @@ export function TasteMapExplorer({ coffees }: { coffees: readonly Coffee[] }) {
             <Link className={styles.matchCard} href={`/shop/${coffee.slug}`}>
               <span className={styles.matchName}>{coffee.name}</span>
               <span className={styles.matchOrigin}>
+                <span
+                  aria-hidden="true"
+                  className={styles.matchChip}
+                  style={{ "--dot-hue": coffee.packageHue } as React.CSSProperties}
+                />
                 {coffee.origin.country} · {coffee.process}
               </span>
               <span className={styles.matchTaste}>{coffee.taste.summary}</span>

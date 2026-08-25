@@ -188,7 +188,7 @@
   font-weight: 400;
 }
 .rowName {
-  font: 400 var(--font-size-h3)/1 var(--font-serif);
+  font: 600 var(--font-size-h3)/1.1 var(--font-sans);
   transition: color var(--duration-fast) var(--ease-standard);
 }
 .rowTaste {
@@ -532,7 +532,7 @@
   text-transform: uppercase;
 }
 .recoName {
-  font: 400 var(--font-size-h3)/1.1 var(--font-serif);
+  font: 600 var(--font-size-h3)/1.15 var(--font-sans);
 }
 .recoCard:hover .recoName {
   color: var(--color-cherry-strong);

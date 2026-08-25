@@ -135,8 +135,9 @@
   gap: 0.25rem;
 }
 .queueTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--font-size-lg);
+  font-weight: 600;
 }
 .queueItem[data-state="current"] .queueTitle {
   color: var(--color-flame-bright);
